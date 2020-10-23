@@ -1,0 +1,3641 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- ios11 viewport-fit=cover 추가
+<meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+-->
+<title>팁</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="/common/js/jquery-ui.js"></script>
+<script type="text/javascript" src="/common/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/common/js/tip.js"></script>
+<script type="text/javascript" src="/common/js/zoom.js"></script>
+<link rel="stylesheet" href="/common/css/jquery-ui.css" type="text/css" />
+<link rel="stylesheet" href="/common/css/css.css" type="text/css" />
+<link rel="stylesheet" href="/common/css/tip.css" type="text/css" />
+</head>
+<body>
+<script type="text/javascript">
+$(function(){
+	var localurl = location.href.split("//")[1].split("/")[0];
+	console.log(localurl);
+	$("#container a").attr("target","_blank");
+	$("#container .accordion .title > a").removeAttr("target");
+	$(".slide_box .btn_slide").removeAttr("target");
+	$(".all_menu li").eq(0).children("ul").append($("#plugin").clone().children("h4"));
+	$(".all_menu li").eq(1).children("ul").append($("#css").clone().children("h4"));
+	$(".all_menu li").eq(2).children("ul").append($("#tip").clone().children("h4"));
+	$(".all_menu li").eq(3).children("ul").append($("#script").clone().children("h4"));
+	$(".all_menu li").eq(4).children("ul").append($("#etc").clone().children("h4"));
+	$(".all_menu li").children("ul").children("h4").contents().unwrap().wrap('<li></li>');
+	$(".all").on("click",function(){
+		$(".all_menu").css("visibility","visible");
+		$("body").css("overflow","hidden");
+	});
+	$(".all_close").on("click",function(){
+		$(".all_menu").css("visibility","hidden");
+		$("body").css("overflow","auto");
+	});
+
+	/**
+	/* Web / Mobile check
+	*/
+	var agent = "win16|win32|win64|macintel|mac";
+	if(agent.indexOf(navigator.platform.toLowerCase())<0 ){
+		$(".os_value").text("현재 Mobile 접속 입니다");
+	}else{
+		$(".os_value").text("현재 PC 접속 입니다");
+	}
+
+	/*
+	var kor_check = /^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/m;
+	//var kor_check = /[\u3131-\u314e|\u314f-\u3163|\uac00-\ud7a3]/g; //유니코드
+	var eng_check = /^[A-za-z]/g;
+	var num_check = /^[0-9]+$/;
+	var header_text = $("#header li a").eq(0).text();
+	//alert(header_text);
+	if(kor_check.test(header_text)){
+		alert("조건1");
+	}else{
+		alert("조건2");
+	}
+
+	$(".btn_H").on("click",function(){
+		$("body").css("overflow-y","hidden");
+	});
+	$(".btn_A").on("click",function(){
+		$("body").css("overflow-y","auto");
+	});
+
+	*/
+var t="ooooooooooooo    ooooo    ooooooooo.  \n8'   888   `8    `888'    `888   Y88.\n     888          888      888   .d88'\n     888          888      888ooo88P' \n     888          888      888        \n     888          888      888        \n    o888o        o888o    o888o       \n\n               - Y S J -";
+	console.log(t);
+});
+</script>
+<style>
+.popArea{position:absolute;top:0;left:0;width:300px;height:400px;z-index:999;border:1px solid #000;background:#fff;}
+.popArea label{cursor:pointer;}
+.pop_btn{overflow:hidden;position:absolute;bottom:0;left:0;right:0;padding:4px;color:#fff;background:#666;}
+.pop_btn form{float:left;}
+.pop_btn a{float:right;color:#fff;}
+
+.os_value{margin-bottom:25px;color:red;}
+</style>
+<script language="JavaScript">
+<!--
+function setCookie(name,value, expiredays){
+	var todayDate = new Date();
+	todayDate.setDate(todayDate.getDate() + expiredays);
+	document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+}
+
+function closeWin(){
+	if(document.main_pop.chkbox.checked){
+		setCookie("maindiv","done",1);
+	}
+	document.all['popArea'].style.visibility = "hidden";
+}
+//-->
+</script>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"> 
+
+<div id="popArea" class="popArea" style="visibility:hidden;">
+	11
+	<div class="pop_btn">
+		<form name="main_pop">
+		<input type="checkbox" name="chkbox" id="checkbox">
+		<label for="checkbox">하루 동안 열지 않음</label>
+		</form>
+		<a href="javascript:closeWin();" class="popClose">닫기</a>
+	</div>
+</div>
+
+<script language="Javascript">
+cookiedata = document.cookie;
+if(cookiedata.indexOf("maindiv=done") < 0){
+	document.all['popArea'].style.visibility = "visible";
+}else{
+	document.all['popArea'].style.visibility = "hidden";
+}
+</script>
+			<!-- <a href="#" class="ms01_prev">이전버튼</a>
+			<a href="#" class="ms01_next">다음버튼</a> -->
+
+
+<!--<a href="javascript:;" class="btn_H">스크롤 히든</a>
+<a href="javascript:;" class="btn_A">스크롤 오토</a>-->
+<div id="wrap">
+	<div id="header">
+		<ul>
+			<li><a href="#plugin">제이쿼리 Plugin</a></li>
+			<li><a href="#css">CSS</a></li>
+			<li><a href="#tip">TIP</a></li>
+			<li><a href="#script">Script</a></li>
+			<li><a href="#etc">ETC</a></li>
+			<li><a href="javascript:;" class="all">전체보기</a></li>
+		</ul>
+	</div>
+	<div class="all_menu">
+		<a href="javascript:;" class="all_close">닫기</a>
+		<ul>
+			<li><a href="#plugin">제이쿼리 Plugin</a><ul></ul></li>
+			<li><a href="#css">CSS</a><ul></ul></li>
+			<li><a href="#tip">TIP</a><ul></ul></li>
+			<li><a href="#script">Script</a><ul></ul></li>
+			<li><a href="#etc">ETC</a><ul></ul></li>
+		</ul>
+	</div>
+	<div id="container">
+		<div id="plugin">
+
+			<a href="javascript:;" onclick="window.open('day.html','','scrollbars=no,menubar=no,width=686,height=499')">팝업</a>
+			<h4>최근 소스 Update 날짜 : 2019.05.03</h4>
+			<h4>!현재 OS check</h4>
+			<p class="os_value"></p>
+			<h3>Jquery plugin</h3>
+			<h4>fullcalendar</h4>
+			<p><a href="http://fullcalendar.io/">http://fullcalendar.io/</a></p>
+			<h4>slick slider ☆</h4>
+			<p><a href="http://kenwheeler.github.io/slick/">http://kenwheeler.github.io/slick/</a></p>
+			<p>responsive 옵션을 이용한 반응형 slide</p>
+			<textarea cols="" rows="14">
+$('.swiper-wrapper').slick({
+	infinite: false,
+	speed: 300,
+	slidesToShow: 7,
+	slidesToScroll: 1,
+	responsive: [
+	{
+		breakpoint: 1023,
+		settings: {
+			slidesToShow: 5
+		}
+	},
+	{
+		breakpoint: 940,
+		settings: {
+			slidesToShow: 4
+		}
+	},
+	{
+		breakpoint: 768,
+		settings: {
+			slidesToShow: 3
+		}
+	},
+	{
+		breakpoint: 480,
+		settings: {
+			slidesToShow: 2
+		}
+	}
+	]
+});
+			</textarea>
+			<p>적용 페이지[여성가족부 부모교육 사이트] : <a href="http://www.mogef.go.kr/kps/pec/kps_pec_s001.do?mid=mda777&cd=kps">http://www.mogef.go.kr/kps/pec/kps_pec_s001.do?mid=mda777&cd=kps</a></p>
+			<h4>bxslider ex</h4>
+			<p><a href="http://bxslider.com/examples">http://bxslider.com/examples</a></p>
+			<h4>wowslider</h4>
+			<p><a href="http://wowslider.com/best-jquery-slider-crystal-linear-demo.html">http://wowslider.com/best-jquery-slider-crystal-linear-demo.html</a></p>
+			<h4>flex slider</h4>
+			<p><a href="http://www.spaghettia.co.kr/03store/interior.html">http://www.spaghettia.co.kr/03store/interior.html</a></p>
+			<textarea cols="" rows="14"><script type="text/javascript">
+$(function(){
+	// 썸네일 복사
+	var $length = $("#slider .slides li").length;
+	var html="";
+	$("#slider .slides li").each(function(index){
+		var img_src = $(this).children("img").attr("src");
+		$("#carousel .slides").append("<li><img src='"+img_src+"' /><span></span></li>");
+	});
+
+	// The slider being synced must be initialized first
+	$('#carousel').flexslider({
+		animation: "slide",
+		controlNav: false,
+		animationLoop: false,
+		slideshow: false,
+		itemWidth: 180,
+		//itemMargin: 5,
+		asNavFor: '#slider',
+		directionNav:false
+	});
+
+	$('#slider').flexslider({
+		animation: "fade",
+		controlNav: false,
+		animationLoop: false,
+		slideshow: false,
+		sync: "#carousel"
+	});
+
+});
+</script>
+<style>
+#carousel li{position:relative;height:92px;cursor:pointer;}
+#carousel li img{width:100%;height:100%;}
+#carousel li span{position:absolute;left:0;top:0;width:180px;height:92px;background:rgba(0,0,0,.4);}
+#carousel li.flex-active-slide span{display:inline-block;width:170px;height:82px;border:5px solid #ea6601;background:none;}
+
+#slider .slides li{overflow:hidden;position:relative;height:400px;}
+.flex-caption {
+position:absolute;
+	width:100%;
+  height:60px;
+  left: 0;
+  top: 340px;
+  text-indent:20px;
+  background: rgba(0,0,0,.4);
+  color: #fff;
+  font-size: 28px;
+  line-height: 60px;
+}
+</style>
+<div id="slider" class="flexslider">
+	<ul class="slides">
+		<li><img src="images01.jpg" alt="이미지" /><p class="flex-caption">타이틀</p></li>
+		<li><img src="images01.jpg" alt="이미지" /><p class="flex-caption">타이틀</p></li>
+		<li><img src="images01.jpg" alt="이미지" /><p class="flex-caption">타이틀</p></li>
+	</ul>
+</div>
+<div id="carousel" class="flexslider">
+	<ul class="slides"></ul>
+</div></textarea>
+			<h4>owlcarousel</h4>
+			<p><a href="http://owlgraphic.com/owlcarousel/">http://owlgraphic.com/owlcarousel/</a></p>
+			<h4>zoom slider</h4>
+			<p><a href="http://wowslider.com/online-photo-gallery-drive-rotate.html">http://wowslider.com/online-photo-gallery-drive-rotate.html</a></p>
+			<h4>fullPage</h4>
+			<p><a href="http://alvarotrigo.com/fullPage/">http://alvarotrigo.com/fullPage/</a></p>
+			<p><a href="http://www.jssor.com/slideshow/x-zoom.html">http://www.jssor.com/slideshow/x-zoom.html</a></p>
+			<h4>Swiper</h4>
+			<p><a href="http://www.idangero.us/swiper/demos/#.Vpw59vmLS9I">http://www.idangero.us/swiper/demos/#.Vpw59vmLS9I</a></p>
+			<h4>이미지슬라이드 모음</h4>
+			<p><a href="http://kyaru.blog.me/130110607779">http://kyaru.blog.me/130110607779</a></p>
+			<h4>FractionSlider</h4>
+			<p><a href="http://www.jqueryrain.com/?bv7y4uq5">http://www.jqueryrain.com/?bv7y4uq5</a></p>
+			<h4>parallax 스크롤</h4>
+			<p><a href="http://pixelcog.github.io/parallax.js/">http://pixelcog.github.io/parallax.js/</a></p>
+			<p>html5 + css3 : <a href="http://dev.classmethod.jp/etc/html5-x-css3-x-jquery-6-parallax/">http://dev.classmethod.jp/etc/html5-x-css3-x-jquery-6-parallax/</a></p>
+			<h4>paper</h4>
+			<p><a href="http://paper.ridibooks.com/Intro">http://paper.ridibooks.com/Intro</a></p>
+			<h4>모바일용 - 메뉴 슬라이드</h4>
+			<p><a href="https://mango.github.io/slideout/">https://mango.github.io/slideout/</a></p>
+			<h4>차트</h4>
+			<p><a href="http://www.chartjs.org/">http://www.chartjs.org/</a></p>
+			<p><a href="https://github.com/naver/billboard.js">https://github.com/naver/billboard.js</a></p>
+			<h4>jQuery word-break: keep-all 플러그인</h4>
+			<p><a href="https://dl.dropboxusercontent.com/u/15546257/code/jquery-word-break-keep-all-plugin/example.html">https://dl.dropboxusercontent.com/u/15546257/code/jquery-word-break-keep-all-plugin/example.html</a></p>
+			<h4>jQuery File Upload Demo</h4>
+			<p><a href="http://blueimp.github.io/jQuery-File-Upload/">http://blueimp.github.io/jQuery-File-Upload/</a></p>
+			<h4>scrollpath</h4>
+			<p><a href="http://joelb.me/scrollpath/">http://joelb.me/scrollpath/</a></p>
+			<h4>scrollbar</h4>
+			<p><a href="https://gromo.github.io/jquery.scrollbar/">https://gromo.github.io/jquery.scrollbar/</a></p>
+			<h4>pickadate</h4>
+			<p><a href="http://amsul.ca/pickadate.js/">http://amsul.ca/pickadate.js/</a></p>
+			<h4>textillate</h4>
+			<p><a href="http://jschr.github.io/textillate/">http://jschr.github.io/textillate/</a></p>
+			<h4>jQuery tubular</h4>
+			<p><a href="http://www.seanmccambridge.com/tubular/">http://www.seanmccambridge.com/tubular/</a></p>
+			<h4>typeahead</h4>
+			<p><a href="http://twitter.github.io/typeahead.js/">http://twitter.github.io/typeahead.js/</a></p>
+			<h4>unitegallery</h4>
+			<p><a href="http://unitegallery.net/index.php">http://unitegallery.net/index.php</a></p>
+			<h4>fakeLoader</h4>
+			<p><a href="http://joaopereirawd.github.io/fakeLoader.js/">http://joaopereirawd.github.io/fakeLoader.js/</a></p>
+			<h4>Tabelizer</h4>
+			<p><a href="http://powerconsulting.co/Samples/Tabelizer">http://powerconsulting.co/Samples/Tabelizer</a></p>
+			<h4>셀렉트박스 대체 스크립트 업데이트</h4>
+			<p><a href="http://www.psyonline.kr/1268996171">http://www.psyonline.kr/1268996171</a></p>
+			<h4>Table colResizable</h4>
+			<p><a href="http://www.bacubacu.com/colresizable/">colResizable 1.6 - a jQuery plugin</a></p>
+			<p><a href="colresizable.html">샘플소스</a></p>
+			<h4>DataTables Ordering</h4>
+			<p><a href="https://datatables.net/">DataTables</a></p>
+			<p><a href="datatable.html">샘플소스</a></p>
+			<h4>Table colResizable &amp; DataTables Ordering 병합.</h4>
+			<p><a href="tablevent.html">샘플소스</a></p>
+			<h4>jqxtabs : tab contents (add/remove)</h4>
+			<p><a href="https://www.jqwidgets.com/jquery-widgets-demo/demos/jqxtabs/index.htm#demos/jqxtabs/settings.htm">jqwidgets</a></p>
+
+<script type="text/javascript">
+$(function() {
+	$(".datepicker").datepicker({
+		showMonthAfterYear:true,
+		changeYear:true,
+		changeMonth:true,
+		dateFormat: 'yy-mm-dd',
+		yearSuffix:'년',
+		monthSuffix:'년',
+		monthNames:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		monthNamesShort:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		dayNamesMin:['일','월','화','수','목','금','토'],
+		numberOfMonths: [1,2]
+	});
+});
+</script>
+			<h4>datepicker</h4>
+			<p><a href="http://api.jqueryui.com/datepicker/">http://api.jqueryui.com/datepicker/</a></p>https://trentrichardson.com/examples/timepicker/
+			<textarea cols="" rows="14"><script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script type="text/javascript">
+$(function() {
+	$(".datepicker").datepicker({
+		showMonthAfterYear:true,
+		changeYear:true,
+		changeMonth:true,
+		dateFormat: 'yy-mm-dd',
+		yearSuffix:'년',
+		monthNames:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		monthNamesShort:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		dayNamesMin:['일','월','화','수','목','금','토'],
+		numberOfMonths: [1,2]
+	});
+});
+</script>
+<input type="text" name="" class="datepicker" /></textarea>
+			<div>
+				<input type="text" name="" class="datepicker" /><input type="text" name="" class="datepicker" /><input type="text" name="" class="datepicker" /><input type="text" name="" class="datepicker" />
+			</div>
+			<p><a href="datepicker.html">★ 일/주/월 달력 single 소스★</a></p>
+			<h4>datetimepicker</h4>
+			<p><a href="https://trentrichardson.com/examples/timepicker/">https://trentrichardson.com/examples/timepicker/</a></p>
+			<h4>mousewheel event</h4>
+			<textarea cols="" rows="14">$(window).bind('mousewheel', function(e) {
+	if(e.originalEvent.wheelDelta / 120 > 0){
+		// wheel up
+		$("html,body").stop().animate({ scrollTop : 0 } , 800, "easeInOutQuart" );
+	}else{
+		// wheel down
+		$("html,body").stop().animate({ scrollTop : target } , 800, "easeInOutQuart" );
+	}
+});</textarea>
+			<h4>animated 중일때 mousewheel event 중지</h4>
+			<textarea cols="" rows="14">if($('html').is(':animated') || $('body').is(':animated')) return false;</textarea>
+		</div>
+		<div id="css">
+			<h3>CSS</h3>
+			<h4>will-change</h4>
+			<p><a href="https://dev.opera.com/articles/ko/css-will-change-property/">https://dev.opera.com/articles/ko/css-will-change-property/</a></p>
+			<h4>loading bar</h4>
+<div class="load_box">
+	<div class="loading">
+		<div class="loader"></div>
+	</div>
+</div>
+<style>
+.load_box{position:relative;width:100%;height:100px;}
+.loading{position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,.3);z-index:9999;}
+.loader{position:absolute;left:50%;top:50%;margin:-30px 0 0 -30px;width:60px;height:60px;}
+.loader:before,.loader:after{position:absolute;left:0;top:0;width:60px;height:60px;border-radius:50%;box-sizing:border-box;content:'';}
+.loader:before{
+	border:6px solid #f3f3f3;
+	border-top:6px solid #3498db;
+	animation: spin 2s infinite ease;
+}
+.loader:after{
+	border:6px solid transparent;
+	border-top:6px solid #f3f3f3;
+	animation: spin 2s infinite ease .3s;
+}
+@keyframes spin {
+	0% {transform:rotate(0deg);}
+	100% { transform:rotate(360deg);}
+}
+</style>
+			<textarea cols="" rows="14">- html
+<div class="loading">
+	<div class="loader"></div>
+</div>
+
+- css
+.loading{position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,.3);z-index:9999;}
+.loader{position:absolute;left:50%;top:50%;margin:-30px 0 0 -30px;width:60px;height:60px;}
+.loader:before,.loader:after{position:absolute;left:0;top:0;width:60px;height:60px;border-radius:50%;box-sizing:border-box;content:'';}
+.loader:before{
+	border:6px solid #f3f3f3;
+	border-top:6px solid #3498db;
+	animation: spin 2s infinite ease;
+}
+.loader:after{
+	border:6px solid transparent;
+	border-top:6px solid #f3f3f3;
+	animation: spin 2s infinite ease .3s;
+}
+@keyframes spin {
+	0% {transform:rotate(0deg);}
+	100% { transform:rotate(360deg);}
+}
+			</textarea>
+
+			<h4>will-change</h4>
+			<p><a href="https://dev.opera.com/articles/ko/css-will-change-property/">https://dev.opera.com/articles/ko/css-will-change-property/</a></p>
+			<h4>switch</h4>
+<style>
+.switch{overflow:hidden;position:relative;display:inline-block;width:80px;height:34px;vertical-align:middle;}
+.switch input{position:absolute;top:0;left:0;opacity:0;filter:alpha(opacity:'0');z-index:-1;}
+.switch .slider{position:absolute;top:0;left:0;right:0;bottom:0;cursor:pointer;border-radius:34px;background:#ccc;-webkit-transition:.4s;transition:.4}
+.switch .slider i{position:absolute;height:26px;width:26px;left:4px;bottom:4px;border-radius:50%;background:#fff;content:'';-webkit-transition:.4s;transition:.4s;}
+.switch .slider i:before,.switch .slider i:after{position:absolute;bottom:0;font-size:17px;font-family: "Nanum Barun Gothic",Dotum;line-height:24px;font-weight:700;}
+.switch .slider i:before{right:-38px;color:#333;text-align:left;content:'OFF';}
+.switch .slider i:after{left:-36px;color:#fff;text-align:right;content:'ON';}
+.switch input:checked + .slider{background: #2196F3;}
+.switch input:checked + .slider i{-webkit-transform: translateX(46px);-ms-transform: translateX(46px);transform: translateX(46px);}
+</style>
+			<p>
+				<label class="switch">
+					<input type="checkbox" name="" />
+					<span class="slider round"><i></i></span>
+				</label>
+			</p>
+			<textarea cols="" rows="14">- html
+<label class="switch">
+	<input type="checkbox" name="" />
+	<span class="slider round"><i></i></span>
+</label>
+			</textarea>
+			<textarea cols="" rows="14">- css
+.switch{overflow:hidden;position:relative;display:inline-block;width:80px;height:34px;vertical-align:middle;}
+.switch input{position:absolute;top:0;left:0;opacity:0;filter:alpha(opacity:'0');z-index:-1;}
+.switch .slider{position:absolute;top:0;left:0;right:0;bottom:0;cursor:pointer;border-radius:34px;background:#ccc;-webkit-transition:.4s;transition:.4}
+.switch .slider i{position:absolute;height:26px;width:26px;left:4px;bottom:4px;border-radius:50%;background:#fff;content:'';-webkit-transition:.4s;transition:.4s;}
+.switch .slider i:before,.switch .slider i:after{position:absolute;bottom:0;font-size:17px;font-family: "Nanum Barun Gothic",Dotum;line-height:24px;font-weight:700;}
+.switch .slider i:before{right:-38px;color:#333;text-align:left;content:'OFF';}
+.switch .slider i:after{left:-36px;color:#fff;text-align:right;content:'ON';}
+.switch input:checked + .slider{background: #2196F3;}
+.switch input:checked + .slider i{-webkit-transform: translateX(46px);-ms-transform: translateX(46px);transform: translateX(46px);}
+			</textarea>
+			<p></p>
+			<h4>Opacity</h4>
+			<p>opacity: 0.5; filter: alpha(opacity:'50');</p>
+			<h4>자간</h4>
+<style>
+.justy{width:100%;border-top:2px solid #00fefa;}
+.justy th,.justy td{padding:10px 5px 0px;border-bottom:1px solid #bdbdbd;border-left:1px solid #bdbdbd;line-height:1;}
+.justy th{text-align:justify;background:#ededed;}
+.justy th:after { content:""; display:inline-block; width:100%; }
+</style>
+			<table class="justy" summary="">
+				<caption></caption>
+				<colgroup>
+					<col width="100px" />
+					<col width="*" />
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row">제 목</th>
+						<td>aaaa<br />aaaa<br />aaaa</td>
+					</tr>
+					<tr>
+						<th scope="row">작 성 자</th>
+						<td>ysj</td>
+					</tr>
+				</tbody>
+			</table>
+			<textarea cols="" rows="14"><style>
+.justify { text-align:justify; }
+.justify:after { content:""; display:inline-block; width:100%; }
+</style>
+<div class="justify">제 목</div>
+<div class="justify">작 성 자</div></textarea>
+			<h4>background 파스텔톤 그라데이션(IE9이하 적용X)</h4>
+			<p><a href="https://webgradients.com/">https://webgradients.com/</a></p>
+			<h4>당신이 모를수있는 css font 단위</h4>
+			<p><a href="https://webdesign.tutsplus.com/ko/articles/7-css-units-you-might-not-know-about--cms-22573">https://webdesign.tutsplus.com/ko/articles/7-css-units-you-might-not-know-about--cms-22573</a></p>
+			<h4>Font size 비율계산</h4>
+			<p>font-size:10px; / 1.2rem; => 12px<br />font-size:10px; / 1.6rem; => 16px<br />- 베이스 10px을 기준으로 각각 비율로 계산.</p>
+			<h4>viewport font-size / Relative Length Units</h4>
+			<p><a href="http://blog.naver.com/the_designer/220346213534">http://blog.naver.com/the_designer/220346213534</a></p>
+			<p>참조 : <a href="http://www.w3schools.com/cssref/css_units.asp">http://www.w3schools.com/cssref/css_units.asp</a></p>
+			<h4>absolute length unit</h4>
+			<p><a href="http://blog.naver.com/the_designer/220346107906">http://blog.naver.com/the_designer/220346107906</a></p>
+			<p>참조 : <a href="http://www.w3schools.com/cssref/css_units.asp">http://www.w3schools.com/cssref/css_units.asp</a></p>
+			<h4>[CSS3] 이제는 쓸만한 CSS3 신규 규격 1부 (em, ex, rem)</h4>
+			<p><a href="http://cafe.naver.com/domfam/8921">http://cafe.naver.com/domfam/8921</a></p>
+			<h4>[CSS3] 이제는 쓸만한 CSS3 신규 규격 2부 (vh, vw, vmin, vmax)</h4>
+			<p><a href="http://cafe.naver.com/domfam/8927">http://cafe.naver.com/domfam/8927</a></p>
+			<h4>[CSS3] 이제는 쓸만한 CSS3 신규 규격 3부 ( calc() )</h4>
+			<p><a href="http://cafe.naver.com/domfam/8928">http://cafe.naver.com/domfam/8928</a></p>
+			<h4>[CSS3] cssreference</h4>
+			<p><a href="http://cssreference.io">http://cssreference.io</a></p>
+			<h4>[CSS3] border-image 테두리 그라디언트 그라데이션</h4>
+<style>
+.border-div-box{overflow:hidden;}
+.border-div{
+	float:left;
+	width:100px;
+	height:100px;
+	margin:10px;
+	font-size:30px;
+	line-height:100px;
+	text-align:center;
+
+	/*border element*/
+	border:30px;
+	border-style:solid;
+	border-image-slice:1;
+}
+.border-div1{border-image:linear-gradient(to bottom, #f00, #00f);}
+.border-div2{border-image:linear-gradient(to right, #f00, #00f);}
+.border-div3{border-image:linear-gradient(to right bottom, #f00, #00f);}
+.border-div4{border-image:linear-gradient(to bottom, #f00 10%, #00f 40%, #0f0 80%, #ff0 100%);}
+.border-div5{border-image:radial-gradient(ellipse at 0% 0%, #f00, #00f);}
+.border-div6{border-image:radial-gradient(ellipse at 0% 100%, #f00, #00f);}
+.border-div7{border-image:radial-gradient(ellipse at 100% 0%, #f00, #00f);}
+.border-div8{border-image:radial-gradient(ellipse at 100% 100%, #f00, #00f);}
+.border-div9{border-image:radial-gradient(ellipse at 50% 50%, #00086c 70%, #fffa74 80%, #00f 95%);}
+.border-div10{border-image:linear-gradient(to right, #555 0%, rgba(0, 0, 255, 0) 100%);}
+.border-div11{border-image:repeating-linear-gradient(45deg, #f33, #3bf, #f33 30px) 60;border-radius:30px;}
+</style>
+			<div class="border-div-box">
+				<div class="border-div border-div1">DIV1</div>
+				<div class="border-div border-div2">DIV2</div>
+				<div class="border-div border-div3">DIV3</div>
+				<div class="border-div border-div4">DIV4</div>
+				<div class="border-div border-div5">DIV5</div>
+				<div class="border-div border-div6">DIV6</div>
+				<div class="border-div border-div7">DIV7</div>
+				<div class="border-div border-div8">DIV8</div>
+				<div class="border-div border-div9">DIV9</div>
+				<div class="border-div border-div10">DIV10</div>
+				<div class="border-div border-div11">DIV11</div>
+			</div>
+			<textarea cols="" rows="14">
+.border-div{
+	float:left;
+	width:100px;
+	height:100px;
+	margin:10px;
+	font-size:30px;
+	line-height:100px;
+	text-align:center;
+
+	/*border element*/
+	border:20px;
+	border-style:solid;
+	border-image-slice:1;
+}
+
+.border-div1{
+	border-image:linear-gradient(to bottom, #f00, #00f);
+}
+
+.border-div2{
+	border-image:linear-gradient(to right, #f00, #00f);
+}
+
+.border-div3{
+	border-image:linear-gradient(to right bottom, #f00, #00f);
+}
+
+.border-div4{
+	border-image:linear-gradient(to bottom, #f00 10%, #00f 40%, #0f0 80%, #ff0 100%);
+}
+
+.border-div5{
+	border-image:radial-gradient(ellipse at 0% 0%, #f00, #00f);
+}
+
+.border-div6{
+	border-image:radial-gradient(ellipse at 0% 100%, #f00, #00f);
+}
+
+.border-div7{
+	border-image:radial-gradient(ellipse at 100% 0%, #f00, #00f);
+}
+
+.border-div8{
+	border-image:radial-gradient(ellipse at 100% 100%, #f00, #00f);
+}
+
+.border-div9{
+	border-image:radial-gradient(ellipse at 50% 50%, #00086c 70%, #fffa74 80%, #00f 95%);
+}
+
+.border-div10{
+	border-image:linear-gradient(to right, #555 0%, rgba(0, 0, 255, 0) 100%);
+}
+.border-div11{border-image:repeating-linear-gradient(45deg, #f33, #3bf, #f33 30px) 60;}
+</textarea>
+			<p>출처 : https://rgy0409.tistory.com/3036</p>
+			<h4>input type[file] ie10 css style</h4>
+			<textarea cols="" rows="14">input[type=file]{width:100%;height:40px;}
+input[type=file]::-ms-value{border:none;background:none;}
+input[type=file]::-ms-browse {border-top:none;border-bottom:none;border-right:none;border-left:1px solid #d2d2d2;background:none;}</textarea>
+			<p>출처 : <a href="https://msdn.microsoft.com/en-us/library/windows/apps/hh465739.aspx">https://msdn.microsoft.com/en-us/library/windows/apps/hh465739.aspx</a></p>
+			<dl>
+				<dt>::-ms-value</dt>
+				<dd>이것은 input 의 text ,password,select 를 제어하는 스타일임</dd>
+				<dt>::-ms-browse</dt>
+				<dd>input file 의 버튼 스타일을 컨트롤</dd>
+				<dt>::-ms-check</dt>
+				<dd>input 의 checkbox, radio, button 등을 컨트롤</dd>
+			</dl>
+			<h4>Flex</h4>
+			<p><a href="https://studiomeal.com/archives/197">https://studiomeal.com/archives/197</a></p>
+			<h4>pointer-events</h4>
+			<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events">https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events</a></p>
+			<textarea cols="" rows="14">- html
+<ul>
+<li><a href="https://developer.mozilla.org">MDN</a></li>
+<li><a href="http://example.com">example.com</a></li>
+</ul>
+
+-css
+a[href="http://example.com"] {
+  pointer-events: none;
+}
+
+* inline script도 가능
+</textarea>
+
+			<h4>말줄임</h4>
+			<textarea cols="" rows="14">text-overflow:ellipsis;
+overflow:hidden;
+white-space:nowrap;</textarea>
+			<h4>모바일 세로정렬</h4>
+			<textarea cols="" rows="14">/* Internet Explorer 10 */
+display:-ms-flexbox;
+-ms-flex-pack:center;
+-ms-flex-align:center;
+
+/* Firefox */
+display:-moz-box;
+-moz-box-pack:center;
+-moz-box-align:center;
+
+/* Safari, Opera, and Chrome */
+display:-webkit-box;
+-webkit-box-pack:center;
+-webkit-box-align:center;
+
+/* W3C */
+display:box;
+box-pack:center;
+box-align:center;</textarea>
+
+			<h4>css로 삼각형 그리기</h4>
+			<textarea cols="" rows="14"><div class="arrow"></div>
+			
+.arrow{
+  width: 1px;
+  border-top: 90px solid #333;
+  border-right: 100px solid transparent;
+  position: relative;
+}
+.arrow:after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -90px;
+  border-top: 100px solid #f3f5f6; /* 배경색 */
+  border-right: 40px solid transparent;
+}</textarea>
+			<h4>css 선택자</h4>
+			<textarea cols="" rows="14">- class속성이 list로 시작하는 요소를 제외
+li:not([class^="list"])</textarea>
+			<h4>after 삼각형 그리기</h4>
+			<div><span class="arrow_after"></span></div>
+<style>
+.arrow_after{position:relative;display:inline-block;width:50px;height:50px;background:#f2f2f2;}
+.arrow_after:after{position:absolute;top:50%;left:75%;margin:-8px 0 0 -6px;border-width:6px;border-style:solid;border-color:transparent transparent transparent #fd800e;border-radius:2px;content:'';z-index:5;}
+</style>
+			<textarea cols="" rows="14">
+<span class="arrow_after"></span>
+
+.arrow_after{position:relative;display:inline-block;width:50px;height:50px;background:#f2f2f2;}
+.arrow_after:after{position:absolute;top:50%;left:75%;margin:-8px 0 0 -6px;border-width:6px;border-style:solid;border-color:transparent transparent transparent #fd800e;border-radius:2px;content:'';z-index:5;}
+</textarea>
+			<h4>input range</h4>
+			<p><a href="https://codepen.io/ryanttb/pen/fHyEJ" target="_blank">https://codepen.io/ryanttb/pen/fHyEJ</a></p>
+			<textarea cols="" rows="14">-html
+<div class="ie">
+  <input type="range" value="75" />
+</div>
+
+<div class="firefox">
+  <input type="range" value="75" />
+</div>
+
+<div class="chrome">
+  <input type="range" value="75" />
+</div>
+
+<div class="ie firefox chrome">
+  <input type="range" value="75" />
+</div>
+
+<div class="all">
+  <input type="range" value="75" />
+</div>
+
+<div class="merged">
+  <input type="range" value="75" />
+</div>
+</textarea>
+<textarea cols="" rows="14">
+-css
+@import "compass/css3";
+.ie {
+
+  input::-ms-fill-upper {
+    background-color: blue;
+    border: solid 2px #444;
+    border-radius: 8px;    
+  }
+  
+  input::-ms-fill-lower {
+    background-color: #267928;
+    border: solid 2px #444;
+    border-radius: 8px;    
+  }
+  
+  input::-ms-thumb {
+    width: 12px;
+    height: 24px;
+    background-color: #469948;
+    border: solid 2px #dedede;
+  }
+  
+  input::-ms-track {
+    height: 12px;
+    
+    border: none;
+    /* can set to none to
+     * only see rounded fills */
+    
+    color: red;
+  }
+}
+
+.firefox {
+  input {
+    height: 12px;
+  }
+  
+  input::-moz-range-thumb {
+    background-color: #469948;
+    border: solid 2px #dedede;
+    border-radius: 0;
+    height: 16px;
+    width: 16px;
+  }
+
+  input::-moz-range-track {  
+    /*background: linear-gradient(to right, green, #005555 75%, blue);*/
+    border: solid 2px #444;
+    border-radius: 8px;
+    height: 12px;
+    
+    /* cannot add or style
+     * tick marks */
+    /* color: red; */
+  }
+}
+
+.chrome {
+  input {
+    background: linear-gradient(to right, green, #005555 75%, blue);
+    border: solid 2px #444;
+    border-radius: 8px;
+    height: 10px;
+    
+    -webkit-appearance: none;
+  }
+  
+  input::-webkit-slider-thumb {
+    background-color: #469948;
+    border: solid 2px #dedede;
+    border-radius: 0;
+        
+    height: 20px;
+    width: 20px;
+    
+    -webkit-appearance: none;
+  }
+}
+
+.all {
+  input {
+    height: 12px;
+    width: 256px;
+  }
+  
+  input.webkit-track {
+    background: linear-gradient(to right, green, #005555 75%, blue);
+    border: solid 2px #444;
+    border-radius: 8px;
+    -webkit-appearance: none;    
+  }
+
+  input::-moz-range-track {  
+    border: solid 2px #444;
+    border-radius: 8px;
+    height: 12px;
+  }  
+    
+  input::-ms-fill-upper {
+    background-color: blue;
+    border: solid 2px #444;
+    border-radius: 8px;    
+  }
+  
+  input::-ms-fill-lower {
+    background-color: #267928;
+    border: solid 2px #444;
+    border-radius: 8px;    
+  }
+
+  input::-ms-track {
+    border: none;
+    height: 12px;
+    color: transparent;
+  }  
+  
+  input::-moz-range-thumb {
+    background-color: #469948;
+    border: solid 2px #dedede;
+    border-radius: 0;
+    height: 16px;
+    width: 16px;
+  }
+  
+  input::-ms-thumb {
+    width: 12px;
+    height: 24px;
+    background-color: #469948;
+    border: solid 2px #dedede;
+  }
+ 
+  input::-webkit-slider-thumb {
+    background-color: #469948;
+    border: solid 2px #dedede;
+    border-radius: 0;
+    height: 20px;
+    width: 20px;
+    -webkit-appearance: none;
+  }
+}
+
+.merged {
+  /* color the track
+   * firefox/webkit gradient done in JavaScript */
+  input::-moz-range-track {
+    border: solid 2px #444;
+    border-radius: 8px;
+    -webkit-appearance: none;
+  }  
+  input::-ms-fill-upper {
+    background-color: blue;
+  }  
+  input::-ms-fill-lower {
+    background-color: #267928;
+  }
+  input::-ms-fill-upper, input::-ms-fill-lower {
+    border: solid 2px #444;
+    border-radius: 8px;
+    -webkit-appearance: none;
+  }
+  input::-ms-track {
+    border: none;
+    color: transparent;
+  }
+  input.webkit-track {
+    border: solid 2px #444;
+    border-radius: 8px;
+    -webkit-appearance: none;
+  }
+  
+  /* size the slider */
+  input::-moz-range-track {
+    height: 12px;
+  }
+  input::-ms-track {
+    height: 12px;
+  }
+  input {
+    height: 12px;
+  }
+  
+  input {
+    width: 256px;    
+  }
+
+  /* style the thumb
+   * can all be same but must be on seperate lines
+   * or browsers won't accept them */
+  input::-moz-range-thumb {
+    background-color: #469948;
+    border: solid 2px #dedede;
+    border-radius: 0;
+    height: 16px;
+    width: 16px;
+    -webkit-appearance: none;
+  }
+  input::-ms-thumb {
+    background-color: #469948;
+    border: solid 2px #dedede;
+    border-radius: 0;
+    height: 16px;
+    width: 16px;
+    -webkit-appearance: none;
+  }
+  input::-webkit-slider-thumb {
+    background-color: #469948;
+    border: solid 2px #dedede;
+    border-radius: 0;
+    height: 16px;
+    width: 16px;
+    -webkit-appearance: none;
+  }  
+}
+
+</textarea>
+<textarea cols="" rows="14">
+-js
+// .firefox
+var isFF = true;
+var addRule = (function (style) {
+  var sheet = document.head.appendChild(style).sheet;
+  return function (selector, css) {
+    if ( isFF ) {
+      if ( sheet.cssRules.length > 0 ) {
+        sheet.deleteRule( 0 );
+      }
+    
+      try {
+        sheet.insertRule(selector + "{" + css + "}", 0);
+      } catch ( ex ) {
+        isFF = false;
+      }
+    }    
+  };
+})(document.createElement("style"));
+
+addRule( '.firefox input::-moz-range-track', 'background: linear-gradient(to right, green, #005555 75%, blue)' );
+
+$( '.firefox input' ).on( 'input', function( ) {
+  addRule( '.firefox input::-moz-range-track', 'background: linear-gradient(to right, green, #005555 ' + this.value + '%, blue)' );
+} );
+
+// .chrome
+$( '.chrome input' ).on( 'input', function( ) {
+  $( this ).css( 'background', 'linear-gradient(to right, green, #005555 ' + this.value + '%, blue)' );
+} );
+
+// .all 
+if ( 'webkitRequestAnimationFrame' in window ) {
+  $( '.all input' ).addClass( 'webkit-track' );
+}
+
+addRule( '.all input::-moz-range-track', 'background: linear-gradient(to right, green, #005555 75%, blue)' );
+
+$( '.all input' ).on( 'input', function( ) {
+  addRule( '.all input::-moz-range-track', 'background: linear-gradient(to right, green, #005555 ' + this.value + '%, blue)' );
+  
+  if ( $( this ).hasClass( 'webkit-track' ) ) {
+    $( this ).css( 'background', 'linear-gradient(to right, green, #005555 ' + this.value + '%, blue)' );
+  }
+} );
+
+$( '.all input' ).trigger( 'input' );
+
+
+// .merged
+if ( 'webkitRequestAnimationFrame' in window ) {
+  $( '.merged input' ).addClass( 'webkit-track' );
+}
+
+$( '.merged input' ).on( 'input', function( ) {
+  addRule( '.merged input::-moz-range-track', 'background: linear-gradient(to right, green, #005555 ' + this.value + '%, blue)' );
+  
+  if ( $( this ).hasClass( 'webkit-track' ) ) {
+    $( this ).css( 'background', 'linear-gradient(to right, green, #005555 ' + this.value + '%, blue)' );
+  }
+} );
+
+$( '.merged input' ).trigger( 'input' );
+
+
+</textarea>
+			<h4></h4>
+			<textarea cols="" rows="14"></textarea>
+		</div>
+
+		<div id="tip">
+			<h3>TIP</h3>
+			<h4>HTML 레퍼런스</h4>
+			<p><a href="http://htmlreference.io/">http://htmlreference.io/</a></p>
+			<h4>CSS 레퍼런스</h4>
+			<p><a href="http://cssreference.io/">http://cssreference.io/</a></p>
+			<h4>fontawesome</h4>
+			<p><a href="https://fontawesome.com/how-to-use/on-the-web/styling/duotone-icons">https://fontawesome.com/how-to-use/on-the-web/styling/duotone-icons</a></p>
+			<h4>무료 아이콘</h4>
+			<p><a href="https://www.flaticon.com/">https://www.flaticon.com/</a></p>
+			
+			<h4>select가 들어 있는 파일 찾기</h4>
+			<textarea cols="" rows="14">시작 - 실행 - cmd
+
+> findstr /c:"select" /n /p *.html
+</textarea>
+			<h4>특수문자</h4>
+			<p><a href="http://dev.w3.org/html5/html-author/charref">http://dev.w3.org/html5/html-author/charref</a></p>
+			<textarea cols="" rows="14">￦</textarea>
+			<h4>META</h4>
+			<textarea cols="" rows="14"><!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></textarea>
+			<h4>드래그 우클릭방지</h4>
+			<textarea cols="" rows="14"><body oncontextmenu="return false" ondragstart="return false" onselectstart="return false"></textarea>
+			<h4>ie9 이하 미디어쿼리 적용</h4>
+			<textarea cols="" rows="14"><!-- [if It IE9] -->
+<script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<!-- [end if] --></textarea>
+			<h4>익스 브라우져 찾기</h4>
+			<textarea cols="" rows="14">
+<script>
+$(function(){
+	var agt = navigator.userAgent.toLowerCase();
+ 
+if ( navigator.userAgent.search('Trident') != -1) {
+		alert("IE 브라우저입니다.");
+	}else{
+		alert("IE 브라우저가 아닙니다.");
+	}
+});
+</script></textarea>
+			<h4>윈도우 엣지에서 전화번호 형태에 링크걸리는데 없애는방법</h4>
+			<textarea cols="" rows="14"><meta name="format-detection" content="telephone=no"/></textarea>
+			<p><a href="https://msdn.microsoft.com/en-us/library/dn265018(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/dn265018(v=vs.85).aspx</a></p>
+			<h4>사이트 페이지 다른페이지로 보내버리기(리다이렉션)</h4>
+			<textarea cols="" rows="14"><meta http-equiv="refresh" content="0;url=주소"></textarea>
+			<h4>이미지맵</h4>
+			<textarea cols="" rows="14"><img src="" usemap="#map1" />
+<map name="map1">
+	<area shape="rect" coords="x좌표-start(left),y좌표-start(top),x좌표-end(right),y좌표-end(bottom)" href="" target="_blank" title="">
+</map>
+coords값은 0.0을 기준점으로</textarea>
+			<h4>테이블</h4>
+			<textarea cols="" rows="14"><table summary="">
+	<caption></caption>
+	<colgroup>
+		<col span="2" width="50%" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col"></th>
+			<th scope="col"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row"></th>
+			<td></td>
+		</tr>
+	</tbody>
+</table></textarea>
+			<h4>테이블 thead 고정 스크롤 : IE10 ▲</h4>
+<style type="text/css">
+#table_fix {border-collapse:collapse;width:100%;display:block;}
+#table_fix thead {background-color: #EFEFEF;padding-right:17px;box-sizing:border-box;}
+#table_fix thead,#table_fix tbody {display: block;width: 100%;}
+#table_fix tbody {overflow-y: scroll;height: 140px;}
+#table_fix td,#table_fix th {height: 25px;border: dashed 1px lightblue;}
+</style>
+<script type="text/javascript">
+$(function(){
+	$(window).resize(function(){
+		Tresize();
+	});
+	Tresize();
+});
+function Tresize(){
+	var TableW = $("#table_fix").width();
+	var TLength = $("#table_fix thead th").length;
+	$("#table_fix th, #table_fix td").css("width",TableW/TLength);
+}
+</script>
+
+<table id="table_fix">
+	<thead>
+		<tr>
+			<th>Column 1</th>
+			<th>Column 2</th>
+			<th>Column 3</th>
+			<th>Column 4</th>
+			<th>Column 5</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>AAAAAAAAAAAAAAAAAAAAAAAAAA</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+		</tr>
+		<tr>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+		</tr>
+		<tr>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+	</tbody>
+</table>
+			<textarea cols="" rows="14">
+<style type="text/css">
+html {font-family:verdana;font-size:10pt;line-height:25px;word-break:break-all;}
+table {border-collapse:collapse;width:100%;display:block;}
+thead {background-color: #EFEFEF;padding-right:17px;box-sizing:border-box;}
+thead, tbody {display: block;width: 100%;}
+tbody {overflow-y: scroll;height: 140px;}
+td, th {height: 25px;border: dashed 1px lightblue;}
+</style>
+<script type="text/javascript">
+$(function(){
+	$(window).resize(function(){
+		Tresize();
+	});
+	Tresize();
+});
+function Tresize(){
+	var TableW = $("#table_fix").width();
+	var TLength = $("#table_fix thead th").length;
+	$("#table_fix th, #table_fix td").css("width",TableW/TLength);
+}
+</script>
+
+<table id="table_fix">
+	<thead>
+		<tr>
+			<th>Column 1</th>
+			<th>Column 2</th>
+			<th>Column 3</th>
+			<th>Column 4</th>
+			<th>Column 5</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>AAAAAAAAAAAAAAAAAAAAAAAAAA</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+		</tr>
+		<tr>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+		</tr>
+		<tr>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+	</tbody>
+</table></textarea>
+			<h4>테이블 thead 고정 스크롤 : noscript</h4>
+<style type="text/css">
+.tb-scroll-box{height:300px;}/* 실제 반영시 content 높이에 따라 100%로 가능 */
+.tb-scroll{display:block;table-layout:fixed;width:100%;height:100%;box-sizing:border-box;}
+.tb-scroll thead{padding-right:17px;}
+.tb-scroll thead, .tb-scroll tbody{display:block;width:100%;box-sizing:border-box;}
+.tb-scroll thead{border-top:1px solid #dcdcdc;border-bottom:1px solid #d2d2d2;background:#f3f3f7;}
+.tb-scroll tbody{overflow-y:scroll;height:calc(100% - 35px);}
+.tb-scroll thead tr,.tb-scroll tbody tr{position:relative;display:table;width:100%;}
+.tb-scroll thead tr th,.tb-scroll tbody tr td{display:table-cell;padding:6px 4px;font-size:12px;line-height:18px;box-sizing:border-box;box-shadow:inset 0px -1px 0 #fff;}
+.tb-scroll thead tr th{text-shadow:1px 1px 0 #fff;border-left:1px solid #ddd;}
+.tb-scroll tbody tr td{border-bottom:1px solid #ebedf1;border-left:1px solid #eeeff1;}
+.tb-scroll thead tr th:first-child,.tb-scroll tbody tr td:first-child{border-left:none;}
+
+.tb-scroll thead tr th:nth-child(1),.tb-scroll tbody tr td:nth-child(1){width:10%;}
+.tb-scroll thead tr th:nth-child(2),.tb-scroll tbody tr td:nth-child(2){width:15%;}
+.tb-scroll thead tr th:nth-child(3),.tb-scroll tbody tr td:nth-child(3){width:20%;}
+.tb-scroll thead tr th:nth-child(4),.tb-scroll tbody tr td:nth-child(4){width:25%;}
+.tb-scroll thead tr th:nth-child(5),.tb-scroll tbody tr td:nth-child(5){width:30%;}
+</style>
+<div class="tb-scroll-box">
+<table class="tb-scroll">
+	<colgroup>
+		<col width="10%" />
+		<col width="15%" />
+		<col width="20%" />
+		<col width="25%" />
+		<col width="30%" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>Column 1</th>
+			<th>Column 2</th>
+			<th>Column 3</th>
+			<th>Column 4</th>
+			<th>Column 5</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>AAAAAAAAAAAAAAAAAAAAAAAAAA</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+		</tr>
+		<tr>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+		</tr>
+		<tr>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+			<textarea cols="" rows="14">
+<style type="text/css">
+.tb-scroll-box{height:300px;}/* 실제 반영시 content 높이에 따라 100%로 가능 */
+.tb-scroll{display:block;table-layout:fixed;width:100%;height:100%;box-sizing:border-box;}
+.tb-scroll thead{padding-right:17px;}
+.tb-scroll thead, .tb-scroll tbody{display:block;width:100%;box-sizing:border-box;}
+.tb-scroll thead{border-top:1px solid #dcdcdc;border-bottom:1px solid #d2d2d2;background:#f3f3f7;}
+.tb-scroll tbody{overflow-y:scroll;height:calc(100% - 35px);}
+.tb-scroll thead tr,.tb-scroll tbody tr{position:relative;display:table;width:100%;}
+.tb-scroll thead tr th,.tb-scroll tbody tr td{display:table-cell;padding:6px 4px;font-size:12px;line-height:18px;box-sizing:border-box;box-shadow:inset 0px -1px 0 #fff;}
+.tb-scroll thead tr th{text-shadow:1px 1px 0 #fff;border-left:1px solid #ddd;}
+.tb-scroll tbody tr td{border-bottom:1px solid #ebedf1;border-left:1px solid #eeeff1;}
+.tb-scroll thead tr th:first-child,.tb-scroll tbody tr td:first-child{border-left:none;}
+
+.tb-scroll thead tr th:nth-child(1),.tb-scroll tbody tr td:nth-child(1){width:10%;}
+.tb-scroll thead tr th:nth-child(2),.tb-scroll tbody tr td:nth-child(2){width:15%;}
+.tb-scroll thead tr th:nth-child(3),.tb-scroll tbody tr td:nth-child(3){width:20%;}
+.tb-scroll thead tr th:nth-child(4),.tb-scroll tbody tr td:nth-child(4){width:25%;}
+.tb-scroll thead tr th:nth-child(5),.tb-scroll tbody tr td:nth-child(5){width:30%;}
+</style>
+<div class="tb-scroll-box">
+<table class="tb-scroll">
+	<colgroup>
+		<col width="10%" />
+		<col width="15%" />
+		<col width="20%" />
+		<col width="25%" />
+		<col width="30%" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>Column 1</th>
+			<th>Column 2</th>
+			<th>Column 3</th>
+			<th>Column 4</th>
+			<th>Column 5</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>AAAAAAAAAAAAAAAAAAAAAAAAAA</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+		</tr>
+		<tr>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+		</tr>
+		<tr>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+	</tbody>
+</table>
+</div></textarea>
+			<h4>테이블 thead 고정 스크롤 : scrollbar style (noscript)</h4>
+<style type="text/css">
+.tb-scroll-box{height:300px;}/* 실제 반영시 content 높이에 따라 100%로 가능 */
+.tb-scroll-bar{display:block;table-layout:fixed;width:100%;height:100%;box-sizing:border-box;}
+.tb-scroll-bar thead{padding-right:12px;}
+.tb-scroll-bar thead, .tb-scroll-bar tbody{display:block;width:100%;box-sizing:border-box;}
+.tb-scroll-bar tbody{overflow-y:scroll;height:calc(100% - 35px);padding-right:6px;}
+.tb-scroll-bar thead tr,.tb-scroll-bar tbody tr{position:relative;display:table;width:100%;}
+.tb-scroll-bar thead tr th,.tb-scroll-bar tbody tr td{display:table-cell;padding:6px 4px;font-size:12px;line-height:18px;box-sizing:border-box;box-shadow:inset 0px -1px 0 #fff;}
+.tb-scroll-bar thead tr th{text-shadow:1px 1px 0 #fff;border-left:1px solid #ddd;border-top:1px solid #dcdcdc;border-bottom:1px solid #d2d2d2;background:#f3f3f7;}
+.tb-scroll-bar tbody tr td{border-bottom:1px solid #ebedf1;border-left:1px solid #eeeff1;}
+.tb-scroll-bar thead tr th:first-child,.tb-scroll-bar tbody tr td:first-child{border-left:none;}
+
+.tb-scroll-bar thead tr th:nth-child(1),.tb-scroll-bar tbody tr td:nth-child(1){width:10%;}
+.tb-scroll-bar thead tr th:nth-child(2),.tb-scroll-bar tbody tr td:nth-child(2){width:15%;}
+.tb-scroll-bar thead tr th:nth-child(3),.tb-scroll-bar tbody tr td:nth-child(3){width:20%;}
+.tb-scroll-bar thead tr th:nth-child(4),.tb-scroll-bar tbody tr td:nth-child(4){width:25%;}
+.tb-scroll-bar thead tr th:nth-child(5),.tb-scroll-bar tbody tr td:nth-child(5){width:30%;}
+
+ 
+/* scrollbar style */
+.tb-scroll-bar tbody::-webkit-scrollbar{
+	width:6px;
+}
+.tb-scroll-bar tbody::-webkit-scrollbar-thumb{
+	border-radius:4px;
+	/* -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.2); */
+	background:#d6d5d5;
+}
+</style>
+<div class="tb-scroll-box">
+<table class="tb-scroll-bar">
+	<colgroup>
+		<col width="10%" />
+		<col width="15%" />
+		<col width="20%" />
+		<col width="25%" />
+		<col width="30%" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>Column 1</th>
+			<th>Column 2</th>
+			<th>Column 3</th>
+			<th>Column 4</th>
+			<th>Column 5</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>AAAAAAAAAAAAAAAAAAAAAAAAAA</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+		</tr>
+		<tr>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+		</tr>
+		<tr>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+			<textarea cols="" rows="14">
+<style type="text/css">
+.tb-scroll-box{height:300px;}/* 실제 반영시 content 높이에 따라 100%로 가능 */
+.tb-scroll-bar{display:block;table-layout:fixed;width:100%;height:100%;box-sizing:border-box;}
+.tb-scroll-bar thead{padding-right:12px;}
+.tb-scroll-bar thead, .tb-scroll-bar tbody{display:block;width:100%;box-sizing:border-box;}
+.tb-scroll-bar tbody{overflow-y:scroll;height:calc(100% - 35px);padding-right:6px;}
+.tb-scroll-bar thead tr,.tb-scroll-bar tbody tr{position:relative;display:table;width:100%;}
+.tb-scroll-bar thead tr th,.tb-scroll-bar tbody tr td{display:table-cell;padding:6px 4px;font-size:12px;line-height:18px;box-sizing:border-box;box-shadow:inset 0px -1px 0 #fff;}
+.tb-scroll-bar thead tr th{text-shadow:1px 1px 0 #fff;border-left:1px solid #ddd;border-top:1px solid #dcdcdc;border-bottom:1px solid #d2d2d2;background:#f3f3f7;}
+.tb-scroll-bar tbody tr td{border-bottom:1px solid #ebedf1;border-left:1px solid #eeeff1;}
+.tb-scroll-bar thead tr th:first-child,.tb-scroll-bar tbody tr td:first-child{border-left:none;}
+
+.tb-scroll-bar thead tr th:nth-child(1),.tb-scroll-bar tbody tr td:nth-child(1){width:10%;}
+.tb-scroll-bar thead tr th:nth-child(2),.tb-scroll-bar tbody tr td:nth-child(2){width:15%;}
+.tb-scroll-bar thead tr th:nth-child(3),.tb-scroll-bar tbody tr td:nth-child(3){width:20%;}
+.tb-scroll-bar thead tr th:nth-child(4),.tb-scroll-bar tbody tr td:nth-child(4){width:25%;}
+.tb-scroll-bar thead tr th:nth-child(5),.tb-scroll-bar tbody tr td:nth-child(5){width:30%;}
+
+ 
+/* scrollbar style */
+.tb-scroll-bar tbody::-webkit-scrollbar{
+	width:6px;
+}
+.tb-scroll-bar tbody::-webkit-scrollbar-thumb{
+	border-radius:4px;
+	/* -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.2); */
+	background:#d6d5d5;
+}
+</style>
+<div class="tb-scroll-box">
+<table class="tb-scroll-bar">
+	<colgroup>
+		<col width="10%" />
+		<col width="15%" />
+		<col width="20%" />
+		<col width="25%" />
+		<col width="30%" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>Column 1</th>
+			<th>Column 2</th>
+			<th>Column 3</th>
+			<th>Column 4</th>
+			<th>Column 5</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>AAAAAAAAAAAAAAAAAAAAAAAAAA</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+			<td>Row 1</td>
+		</tr>
+		<tr>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+			<td>Row 2</td>
+		</tr>
+		<tr>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+			<td>Row 3</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+		<tr>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+			<td>Row 4</td>
+		</tr>
+		<tr>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+			<td>Row 5</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</textarea>
+			<h4>페이징</h4>
+			<textarea cols="" rows="14"><div class="paging">
+	<a href="#" class="front"></a>
+	<a href="#" class="prev"></a>
+	<span>1</span>
+	<a href="#">2</a>
+	<a href="#" class="next"></a>
+	<a href="#" class="end"></a>
+</div></textarea>
+			<h4>동영상</h4>
+			<textarea cols="" rows="14"><object classid="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715" standby="Loading Microsoft Windows Media Player components..." width="448" height="366" id="mediaplayer">
+<param name="url" value="url작성" />
+<param name="showcontrols" value="1" />
+<param name="autostart" value="0" />
+</object></textarea>
+			<textarea cols="" rows="14"><!doctype html>
+<html>
+<head>
+<title>Simple Movie Player with Plug-In Fallback</title>
+</head>
+<body>
+	<video controls>
+		<source src="HttpLiveStream.m3u8" type="vnd.apple.mpegURL">
+		<source src="ProgressiveDowload.mp4" type="video/mp4">
+		<source src="OggVorbis.ogv" type="video/ogg">
+		<!-- fallback -->
+		<object classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"
+			codebase="http://www.apple.com/qtactivex/qtplugin.cab"
+			height="320"
+			width="240">
+			<param name="src" value="ProgressiveDownload.mp4">
+		</object>
+	</video>
+</body>
+</html></textarea>
+			<p>참고 : <a href="https://developer.apple.com/library/safari/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/AudioandVideoTagBasics/AudioandVideoTagBasics.html#//apple_ref/doc/uid/TP40009523-CH2-SW4">https://developer.apple.com/library/safari/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/AudioandVideoTagBasics/AudioandVideoTagBasics.html#//apple_ref/doc/uid/TP40009523-CH2-SW4</a></p>
+			<h4>IE, 타브라우져 동영상/사운드 플레이</h4>
+			<textarea cols="" rows="14">- html
+<div class="video_ad">
+	<embed class="object_ad" type="type설정" width="1" height="1" src="동영상URL" autoplay="true" autostart="true" loop="-1"></embed>
+	<video class="audio_ad" src="동영상URL" autoplay="true" loop="true"></video>
+</div>
+* 옵션은 선택사항
+
+- script
+$(function(){
+	var agt = navigator.userAgent.toLowerCase();
+ 
+ //IE 찾기
+if ( navigator.userAgent.search('Trident') != -1) {
+		$(".audio_ad").remove(); //익스가아닐때 비디오 태그 실행
+	}else{
+		$(".object_ad").remove(); //익스일때 embed 실행
+	}
+});
+
+- css
+.video_ad{position:absolute;left:-9999px;top:-9999px;}</textarea>
+			<h4>모바일 첨부파일</h4>
+			<textarea cols="" rows="14">사용법 : <input type="file" name="pic" accept="image/*">
+종류 : <input accept="audio/*,video/*,image/*,media_type" /></textarea>
+		</div>
+
+		<div id="script">
+			<h3>Script</h3>
+			<h4>Chrome scroll bug</h4>
+			<p>현상</p>
+			<ol>
+				<li>1. scroll 이동후 링크영역에서 링크로 페이지 이동.</li>
+				<li>2. history.back() 하면 크롬이 사용자가 보고 있던 스크롤 위치를 저장하고 있다가 해당 페이지에 다시 접근하면 브라우저 레벨에서 자동으로 스크롤링.</li>
+				<li>3. 이상태에서 scrollTop(최상단으로 이동) 후 새로고침(refresh) 하면 화면이 최상단 scroll값과 링크영역 scroll값이 서로 변동되어 화면이 왔다갔다함.</li>
+			</ol>
+			<p>해결 방법</p>
+			<textarea cols="" rows="14">
+// chrome history back and scroll top move refresh bug.
+if ('scrollRestoration' in history) {
+	history.scrollRestoration = 'auto';
+	if($(window).scrollTop() == 0){//최상단일때 history.scrollRestoration 해제.
+		history.scrollRestoration = 'manual';
+	}else{
+		history.scrollRestoration = 'auto';
+	}
+}
+			</textarea>
+			<p>무력화 원소스</p>
+			<textarea cols="" rows="14">
+if ('scrollRestoration' in history) {
+	// Back off, browser, I got this...
+	history.scrollRestoration = 'manual';
+}
+			</textarea>
+			<p>google 문서 : <a href="https://developers.google.com/web/updates/2015/09/history-api-scroll-restoration">https://developers.google.com/web/updates/2015/09/history-api-scroll-restoration</a></p>
+			<h4>원형 progress bar</h4>
+			<div class="">
+				<div class="progress_bar" data-percent="100">
+					<span>9999</span>
+				</div>
+			</div>
+			<p>- html</p>
+			<textarea cols="" rows="14">
+<div class="progress_bar" data-percent="100">
+	<span>9999</span>
+</div>
+</textarea>
+			<p>- css</p>
+			<textarea cols="" rows="14">
+.progress_bar {
+	position:relative;
+	width:100px;
+	height:100px;
+	border-radius:50%;
+	background:#dedddd;
+}
+.progress_bar div {
+	position:absolute;
+	left:50px; 
+	top:0px;
+	display:none; 
+	width:2px;
+	height:50px;
+	background: red;
+	transform-origin: 0px 50px;
+	-webkit-transform-origin: 0px 50px;
+	-moz-transform-origin: 0px 50px;
+	-ms-transform-origin: 0px 50px;
+}
+.progress_bar span {
+	position:absolute;
+	z-index:10;
+	left:15px;
+	top:15px;
+	width:70px;
+	height:70px;
+	line-height:70px; 
+	text-align:center;
+	background:#fcfcfc;
+	border-radius:50%;
+	font-size:19px; 
+	font-weight:bold;
+	color:#333; 
+}
+</textarea>
+			<p>- js</p>
+			<textarea cols="" rows="14">
+$('.progress_bar').each(function(){
+	var doms = '';
+	var $m = $(this);
+	var $data = $m.find('span');
+	var data = $m.data('percent');
+	var com = Math.round(data / 100 * 360);
+	var dur = 2000;
+
+	var getVendorPrefix = function() {
+		var body = document.body || document.documentElement,
+			style = body.style,
+			transition = "Transition",
+			vendor = ["Moz", "Webkit", "ms"],
+			lastGage,
+			i = 0;
+		while (i < vendor.length) {
+			if (typeof style[vendor[i] + transition] === "string") {
+				return vendor[i];
+			}
+			i++;
+		}
+		return false;
+	};
+	var prefix = getVendorPrefix();
+	var transform = prefix + 'Transform';
+
+	for(var i=0; i <= com; i++){
+		doms = '<div class="bar"></div>';
+		$m.append(doms);
+		$('.bar:last').css(transform, 'rotate(' + i + 'deg)');
+	}
+
+	//$m.append(doms);
+
+	$m.find('div').each(function(index, item){
+		$(item).stop().delay(index * 5).fadeIn(50);
+	});
+
+	for(var j=0; j <= data; j++){
+		(function(index){
+			var time = (360/100*index)*5;
+			setTimeout(function(){
+				//$data.text( index + '%');
+			}, time);
+		})(j);
+	}
+});
+</textarea>
+			<h4>영상 zoomIn/zoomOut</h4>
+			<p>- Jquery draggable로 작업.</p>
+			<p>- 1200 / 660 사이즈 기준</p>
+			<div class="zomArea">
+				<div class="zoomSelectBox">
+					배율 : 
+					<select class="zoomSelect" onchange="zoomSelect(this.value)">
+						<option value="2">x2</option>
+						<option value="3">x3</option>
+						<option value="4">x4</option>
+						<option value="5">x5</option>
+					</select>
+				</div>
+				<div class="live_cont">
+					<!-- Video 샘플 -->
+					<video class="video" autoplay muted loop>
+						<source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+					</video>
+					
+					<div class="zoombox">
+						<div class="zoominner">
+							<div class="zoomcontroll" style="width:100%;height:100%;"></div>
+						</div>
+						<div class="zoomscroll">
+							<div class="zoomslider">
+								<a href="javascript:;" style="bottom:0;"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p>- html</p>
+			<textarea cols="" rows="14"><div class="zomArea">
+	<div class="zoomSelectBox">
+		배율 : 
+		<select class="zoomSelect" onchange="zoomSelect(this.value)">
+			<option value="2">x2</option>
+			<option value="3">x3</option>
+			<option value="4">x4</option>
+			<option value="5">x5</option>
+		</select>
+	</div>
+	<div class="live_cont">
+		<!-- Video 샘플 -->
+		<video class="video" autoplay muted loop>
+			<source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+		</video>
+		
+		<div class="zoombox">
+			<div class="zoominner">
+				<div class="zoomcontroll" style="width:100%;height:100%;"></div>
+			</div>
+			<div class="zoomscroll">
+				<div class="zoomslider">
+					<a href="javascript:;" style="bottom:0;"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</textarea>
+			<p>- css</p>
+			<textarea cols="" rows="14">/* zoom In/Out */
+.zomArea{width:1200px;}
+.zoomSelectBox{margin-bottom:10px;text-align:right;}
+.zoomSelectBox .zoomSelect{min-width:68px;height:32px;line-height:32px;}
+.live_cont{overflow:hidden;position:relative;width:1200px;height:660px;}
+.video{position:absolute;left:0;top:0;width:100%;height:100%;}
+.zoombox{position:absolute;right:10px;bottom:14px;padding-right:20px;transition:.6s;}
+.zoombox.active{bottom:55px;transition:.6s;}
+.zoominner{position:relative;width:200px;height:110px;background:rgba(0,0,0,.5);}
+.zoomcontroll{position:absolute;width:100px;height:56px;background:rgba(0,0,0,.5);cursor:pointer;}
+.zoomcontroll:before{position:absolute;left:0;top:0;right:0;bottom:0;border:1px solid #00ff00;content:'';}
+.zoomscroll{position:absolute;bottom:0;right:4px;width:auto;height:auto;z-index:8;}
+.zoomscroll input[type=range]{
+	position:absolute;
+	bottom:0;
+	width:4px;
+	height:110px;
+	writing-mode: bt-lr; /* IE */
+	-webkit-appearance: slider-vertical; /* WebKit */
+}
+.zoomslider{position:relative;width:4px;height:118px;box-sizing:border-box;}
+.zoomslider:before{position:absolute;bottom:0;left:0;width:4px;height:110px;border:1px solid #666;border-radius:2px;box-sizing:border-box;background:#fff;content:'';}
+.zoomslider a{position:absolute;left:-6px;width:16px;height:16px;margin-bottom:-8px;border:1px solid #666;background:#ddd;border-radius:50%;box-sizing:border-box;outline:0;z-index:10;}
+</textarea>
+			<p>- script</p>
+			<textarea cols="" rows="14">$(function(){
+	/**
+	* video zoom
+	*/
+	// 배율 설정 option
+	// video 배율 설정. 기본 2배
+	var level = 2; 
+	if(level == 0){
+		return;
+	}
+	videoZoom(level);
+	
+});
+function videoZoom(level){
+	// fixed value
+	const videoW = 1200; // video screen width.
+	const videoH = 660; // video screen height.
+	const zoomW = calSize(videoW, level);; // zoom screen width.
+	const zoomH = calSize(videoH, level);; // zoom screen height.
+	const depth = (videoW/zoomW) * level; // video와 zoom screen 비율 * video 배율.
+	const minScale = Math.ceil(100 / level); // zoom 비율 최소값 [100% 기준 1/2].
+	const maxScale = Math.ceil(100 * level); // video 비율 최대값 [100% 기준 2배].
+
+	// 초기화.
+	$(".video").css({
+		"width" : videoW +'px',
+		"height" : videoH +'px',
+		"top" : 0,
+		"left" : 0
+	});
+	$(".zoominner").css({
+		"width" : zoomW +'px',
+		"height" : zoomH +'px'
+	});
+	$(".zoomcontroll").css({
+		"width" : zoomW +'px',
+		"height" : zoomH +'px',
+		"top" : 0,
+		"left" : 0
+	});
+	$(".zoomslider a").css("top",'110px');
+
+	let $zoom = $(".zoominner");
+	$(".zoomcontroll").draggable({
+		containment: "parent",
+		snapMode: "inner",
+		create : function(event, ui){
+			let $video = $(".video");
+			$(".zoomslider a").draggable({ // A draggable
+				axis: "y",
+				containment: "parent",
+				drag: function( event, ui ) {
+					let Vrate = Math.ceil(maxScale - ((ui.position.top / 11)*10) * (level - 1)) ;// video 비율 계산.
+					let zw = Math.ceil((zoomW / level) + ((zoomW - (zoomW / level)) * (ui.position.top / 11 *10)/100));// zoom width 비율 px 계산.
+					let zh = Math.ceil((zoomH / level) + ((zoomH - (zoomH / level)) * (ui.position.top / 11 *10)/100));// zoom height 비율 px 계산.
+					
+					let $posiL = parseInt($(".zoomcontroll").css("left"),10);
+					let $posiT = parseInt($(".zoomcontroll").css("top"),10);
+					
+					// 배울 width, height
+					$(".zoomcontroll").css("width",zw +'px');
+					$(".zoomcontroll").css("height",zh +'px');
+					$video.css("width", Vrate +'%');
+					$video.css("height", Vrate +'%');
+					
+					// 슬라이드 drag시 zoom 좌표 및 video 좌표
+					var $scaleW = $(".zoomcontroll").innerWidth();
+					var $scaleH = $(".zoomcontroll").innerHeight();
+					if($posiL + $scaleW > zoomW){
+						$(".zoomcontroll").css("left",zoomW - $scaleW);
+						$(".video").css("left", - (zoomW - $scaleW) * depth);
+					}
+					if($posiT + $scaleH > zoomH){
+						$(".zoomcontroll").css("top",zoomH - $scaleH);
+						$(".video").css("top", - (zoomH - $scaleH) * depth);
+					}
+				}
+			});
+		},
+		drag : function(event, ui){
+			var $posiL = ui.position.left * depth;
+			var $posiT = ui.position.top * depth;
+			console.log($posiL, $posiT);
+			$(".video").css({
+				"left": - $posiL,
+				"top": - $posiT,
+			});
+		}
+	});
+}
+function calSize(size, zoom) {
+	let w = Number.parseInt(size /6);
+	for(i=0; ; i++) {
+		if((w-i)% zoom == 0 ) {
+			return w -i;
+		}
+		
+		if(i >= w ) {
+			return w;
+			
+		}
+	}
+}
+function zoomSelect(val){
+	beforeDestroy();
+	videoZoom(val);
+}
+function beforeDestroy() {
+	$(".zoomcontroll").draggable("destroy");
+	$(".zoomslider a").draggable("destroy");
+	// 초기화.
+	$(".video").css({
+		"width" : '100%',
+		"height" : '100%',
+		"top" : 0,
+		"left" : 0
+	});
+}
+</textarea>
+
+
+
+
+
+			<h4>실시간 순위 Basic</h4>
+			<div class="Brank_box">
+				<p>실시간 급상승 검색어</p>
+				<ol id="Brank">
+					<li><a href="javascript:;"><span>실시간 순위순위순위순위순위순위</span></a><em>▲ 999</em></li>
+					<li><a href="javascript:;"><span>ol영역 마우스 호버시</span></a><em class="down">▼ 110</em></li>
+					<li><a href="javascript:;"><span>a태크 focus 시</span></a><em>▲ 110</em></li>
+					<li><a href="javascript:;"><span>전체보기 활성화</span></a><em>▲ 110</em></li>
+					<li><a href="javascript:;"><span>ol영역 마우스아웃시</span></a><em>▲ 110</em></li>
+					<li><a href="javascript:;"><span>a태크 blur 시</span></a><em>▲ 110</em></li>
+					<li><a href="javascript:;"><span>실시간 기능 활성화</span></a><em>▲ 110</em></li>
+					<li><a href="javascript:;"><span>트와이스 조아</span></a><em>▲ 110</em></li>
+					<li><a href="javascript:;"><span>사나조아</span></a><em>▲ 110</em></li>
+					<li><a href="javascript:;"><span>실시간 활성화.</span></a><em>▲ 110</em></li>
+				</ol>
+			</div>
+			<p>- script</p>
+			<textarea cols="" rows="14">
+$(function(){
+	/* Base */
+	var Bitems = $("#Brank li");
+	var Bcount = Bitems.length;
+	var BitemH = Bitems.height();
+	var BtotalH = BitemH * Bcount;
+	var BTop = new Array();
+	var Brank_action = null;
+
+	function Brank() {
+		for(var i=0; i<Bcount; i++){
+			Bitems.eq(i).css("position","absolute");
+			BTop[i] = BitemH*i;
+			Bitems.eq(i).css("top",BTop[i]+"px");
+			Bitems.eq(i).children("a").attr('data-index',(i+1));
+		}
+		Brank_start();
+	}
+	function Brank_start() {
+		Brank_action = setTimeout(Brank_move,3000);
+	}
+	function Brotation(){
+		for(var i=0; i<Bcount; i++){
+			if(BTop[i] == BitemH*(-2)){
+				BTop[i] = BTop[i] + BtotalH;
+				Bitems.eq(i).css("top",BTop[i]+"px");
+			}
+		}
+		clearTimeout(Brank_action);
+		Brank_action = setTimeout(Brank_move,3000);
+	}
+	function Brank_move(){
+		for(var i=0; i<Bcount; i++){
+			BTop[i] = BTop[i] - 2;
+			Bitems.eq(i).css("top",BTop[i]+"px");
+		}
+		if(BTop[0]%BitemH == 0){
+			Brotation();
+		}else{
+			clearTimeout(Brank_action);
+			Brank_action = setTimeout(Brank_move,50);
+		}
+	}
+	Brank();
+
+	/* animate 추가 */
+	var Bitems = $("#Brank li");
+	var Bcount = Bitems.length;
+	var BitemH = Bitems.height();
+	var BtotalH = BitemH * Bcount;
+	var BTop = new Array();
+	var Brank_action = null;
+
+	function Brank(){
+		for(var i=0; i<Bcount; i++){
+			Bitems.eq(i).css("position","absolute");
+			BTop[i] = BitemH*i;
+			Bitems.eq(i).css("top",BTop[i]+"px");
+			Bitems.eq(i).attr('data-index',(i+1));
+		}
+		Brank_action = setTimeout(BAni,1000);
+	}
+	function Brank_start(){
+		Brank_action = setTimeout(Brank_move,3000);
+	}
+	function Brotation(){
+		var Ani_time = 3000;
+		for(var i=0; i<Bcount; i++){
+			if(BTop[i] == BitemH*(-2)){
+				BTop[i] = BTop[i] + BtotalH;
+				Bitems.eq(i).css("top",BTop[i]+"px");
+			}
+		}
+		Brank_action = setTimeout(BAni,1000);
+		//clearTimeout(Brank_action);
+		//Brank_action = setTimeout(Brank_move,3000);
+	}
+	function BAni(){
+		var Ani_time = 3000;
+		for(var i=0; i<Bcount; i++){
+			if(BTop[i] == 0){
+				var Awidth = Bitems.eq(i).find("a").width();
+				var Swidth = Bitems.eq(i).find("span").innerWidth();
+				Ani_time = (Swidth-Awidth)*60;
+				console.log(Awidth, Swidth);
+				if(Swidth > Awidth){
+					console.log("animate");
+					Bitems.eq(i).find("span").animate({left:-(Swidth-Awidth)},(Swidth-Awidth)*40,'linear');
+				}else{
+					$("#Brank li").find("span").css("left",0);
+				}
+			}
+		}
+		console.log(Ani_time);
+		clearTimeout(Brank_action);
+		if(Ani_time > 3000){
+			Brank_action = setTimeout(Brank_move,Ani_time);
+		}else{
+			Brank_action = setTimeout(Brank_move,3000);
+		}
+	}
+	function Brank_move(){
+		for(var i=0; i<Bcount; i++){
+			BTop[i] = BTop[i] - 2;
+			Bitems.eq(i).css("top",BTop[i]+"px");
+		}
+		if(BTop[0]%BitemH == 0){
+			Brotation();
+		}else{
+			clearTimeout(Brank_action);
+			Brank_action = setTimeout(Brank_move,50);
+		}
+	}
+	Brank();
+});
+			</textarea>
+			<p>- html</p>
+			<textarea cols="" rows="14">
+<div class="Brank_box">
+	<p>실시간 급상승 검색어</p>
+	<ol id="Brank">
+		<li><a href="javascript:;"><span>실시간 순위순위순위순위순위순위</span></a><em>▲ 999</em></li>
+		<li><a href="javascript:;"><span>ol영역 마우스 호버시</span></a><em class="down">▼ 110</em></li>
+		<li><a href="javascript:;"><span>a태크 focus 시</span></a><em>▲ 110</em></li>
+		<li><a href="javascript:;"><span>전체보기 활성화</span></a><em>▲ 110</em></li>
+		<li><a href="javascript:;"><span>ol영역 마우스아웃시</span></a><em>▲ 110</em></li>
+		<li><a href="javascript:;"><span>a태크 blur 시</span></a><em>▲ 110</em></li>
+		<li><a href="javascript:;"><span>실시간 기능 활성화</span></a><em>▲ 110</em></li>
+		<li><a href="javascript:;"><span>트와이스 조아</span></a><em>▲ 110</em></li>
+		<li><a href="javascript:;"><span>사나조아</span></a><em>▲ 110</em></li>
+		<li><a href="javascript:;"><span>실시간 활성화.</span></a><em>▲ 110</em></li>
+	</ol>
+</div>
+			</textarea>
+			<h4>실시간 순위 펼치기</h4>
+			<div class="rank_box">
+				<p>실시간 급상승 검색어</p>
+				<ol id="rank">
+					<li><a href="javascript:;">실시간 순위순위순위순위순위순위</a><em>▲ 300</em></li>
+					<li><a href="javascript:;">ol영역 마우스 호버시</a><em>▲ 110</em></li>
+					<li><a href="javascript:;">a태크 focus 시</a></li>
+					<li><a href="javascript:;">전체보기 활성화</a></li>
+					<li><a href="javascript:;">ol영역 마우스아웃시</a></li>
+					<li><a href="javascript:;">a태크 blur 시</a></li>
+					<li><a href="javascript:;">실시간 기능 활성화</a></li>
+					<li><a href="javascript:;">트와이스 조아</a></li>
+					<li><a href="javascript:;">사나조아</a></li>
+					<li><a href="javascript:;">실시간 활성화.</a></li>
+				</ol>
+			</div>
+			<p>- script</p>
+			<textarea cols="" rows="14">
+$(function(){
+	var items = $("#rank li");
+	var count = items.length;
+	var itemH = items.height();
+	var totalH = itemH * count;
+	var Top = new Array();
+	var rank_action = null;
+
+	items.bind("mouseover focus", function(){
+		rank_stop();
+	});
+	items.bind("mouseout blur", function(){
+		rank_start();
+	});
+
+	function rank(){
+		for(var i=0; i<count; i++){
+			items.eq(i).css("position","absolute");
+			Top[i] = itemH*i;
+			items.eq(i).css("top",Top[i]+"px");
+		}
+		rank_start();
+	}
+	function rank_start(){
+		rank_action = setTimeout(rank_move,3000);
+	}
+	function rank_stop(){
+		clearTimeout(rank_action);
+	}
+	function rotation(){
+		for(var i=0; i<count; i++){
+			if(Top[i] == itemH*(-2)){
+				Top[i] = Top[i] + totalH;
+				items.eq(i).css("top",Top[i]+"px");
+			}
+		}
+		clearTimeout(rank_action);
+		rank_action = setTimeout(rank_move,3000);
+	}
+	function rank_move(){
+		for(var i=0; i<count; i++){
+			Top[i] = Top[i] - 2;
+			items.eq(i).css("top",Top[i]+"px");
+		}
+		if(Top[0]%itemH == 0){
+			rotation();
+		}else{
+			clearTimeout(rank_action);
+			rank_action = setTimeout(rank_move,50);
+		}
+	}
+	rank();
+});
+			</textarea>
+			<p>- html</p>
+			<textarea cols="" rows="14">
+<div class="rank_box">
+	<p>실시간 급상승 검색어</p>
+	<ol id="rank">
+		<li><a href="javascript:;">실시간 순위순위순위순위순위순위</a><em>▲ 300</em></li>
+		<li><a href="javascript:;">ol영역 마우스 호버시</a><em>▲ 110</em></li>
+		<li><a href="javascript:;">a태크 focus 시</a></li>
+		<li><a href="javascript:;">전체보기 활성화</a></li>
+		<li><a href="javascript:;">ol영역 마우스아웃시</a></li>
+		<li><a href="javascript:;">a태크 blur 시</a></li>
+		<li><a href="javascript:;">실시간 기능 활성화</a></li>
+		<li><a href="javascript:;">트와이스 조아</a></li>
+		<li><a href="javascript:;">사나조아</a></li>
+		<li><a href="javascript:;">실시간 활성화.</a></li>
+	</ol>
+</div>
+			</textarea>
+			<p>- css 공통</p>
+			<textarea cols="" rows="14">
+.Brank_box{position:relative;height:30px;}
+.Brank_box p{display:none;}
+.Brank_box ol{overflow:hidden;position:relative;width:160px;height:30px;border:1px solid blue;background:#fff;}
+.Brank_box li{overflow:hidden;position:relative;left:0;right:0;height:30px;padding:0 3px 0 17px;line-height:30px;}
+.Brank_box li:before{position:absolute;left:0;top:0;width:15px;color:red;text-align:center;font-weight:700;content:attr(data-index);}
+.Brank_box a{overflow:hidden;position:relative;float:left;width:68%;height:30px;color:#222;/*text-overflow:ellipsis;word-wrap:normal;white-space:nowrap;*/box-sizing:border-box;}
+.Brank_box a span{position:absolute;left:0;top:0;display:inline-block;height:30px;text-align:left;white-space:nowrap;}
+.Brank_box em{float:right;width:27%;color:red;}
+.Brank_box em.down{color:blue;}
+
+.rank_box{position:relative;height:30px;}
+.rank_box p{display:none;}
+.rank_box ol{overflow:hidden;position:relative;width:160px;height:30px;border:1px solid blue;background:#fff;}
+.rank_box li {overflow:hidden;position:relative;left:0;right:0;height:30px;padding:0 10px;line-height:30px;}
+.rank_box a{overflow:hidden;position:relative;float:left;width:65%;padding-left:17px;color:#222;text-overflow:ellipsis;word-wrap:normal;white-space:nowrap;box-sizing:border-box;}
+.rank_box a:before{position:absolute;left:0;top:0;width:15px;color:red;text-align:center;font-weight:700;content:attr(data-index);}
+.rank_box em{float:right;width:30%;color:red;}
+			</textarea>
+			<h4>Checkbox, Radio, file, select 디자인 변경 ver.20180731</h4>
+			<p>개발 연동을 위해 함수로 처리.</p>
+			<textarea cols="" rows="14">
+/* 함수실행 */
+$(function(){
+	// init
+	UxFormDesign();
+});
+function UxFormDesign(){
+	setCheckBox();
+	setRadioBox();
+	setFileBox();
+	setSelectBox();
+}
+
+/* Ajax 처리시 */
+$(function(){
+	$(document).ajaxStop(function () {
+		UxFormDesign();
+	});
+});
+			</textarea>
+			<h4>Radio 디자인 변경 ver.20180731</h4>
+			<p class="guide_title">radio ul / disabled</p>
+			<p>구조 : ol > li</p>
+			<ol>
+				<li><label class="radio" title="radio1"><input type="radio" name="radio_ul" checked="checked" />radio1</label></li>
+				<li><label class="radio" title="radio2"><input type="radio" name="radio_ul" />radio2</label></li>
+				<li><label class="radio" title="radio3"><input type="radio" name="radio_ul" />radio3</label></li>
+			</ol>
+			<ol>
+				<li><label class="radio" title="radio1"><input type="radio" name="radio_ul_disabled" checked="checked" disabled="disabled" />radio1</label></li>
+				<li><label class="radio" title="radio2"><input type="radio" name="radio_ul_disabled" disabled="disabled" />radio2</label></li>
+				<li><label class="radio" title="radio3"><input type="radio" name="radio_ul_disabled" disabled="disabled" />radio3</label></li>
+			</ol>
+			<p class="guide_title">radio 개별 / disabled</p>
+			<p>구조 :div</p>
+			<div>
+				<label class="radio" title="radio1"><input type="radio" name="radio_single" checked="checked" />radio1</label>
+				<label class="radio" title="radio2"><input type="radio" name="radio_single" />radio2</label>
+				<label class="radio" title="radio3"><input type="radio" name="radio_single" />radio3</label>
+			</div>
+			<div>
+				<label class="radio" title="radio1"><input type="radio" name="radio_single_disabled" checked="checked" disabled="disabled" />radio1</label>
+				<label class="radio" title="radio2"><input type="radio" name="radio_single_disabled" disabled="disabled" />radio2</label>
+				<label class="radio" title="radio3"><input type="radio" name="radio_single_disabled" disabled="disabled" />radio3</label>
+			</div>
+			<p>- html</p>
+			<textarea cols="" rows="14">
+<p class="guide_title">radio ul / disabled</p>
+<p>구조 : ol > li</p>
+<ol>
+	<li><label class="radio" title="radio1"><input type="radio" name="radio_ul" checked="checked" />radio1</label></li>
+	<li><label class="radio" title="radio2"><input type="radio" name="radio_ul" />radio2</label></li>
+	<li><label class="radio" title="radio3"><input type="radio" name="radio_ul" />radio3</label></li>
+</ol>
+<ol>
+	<li><label class="radio" title="radio1"><input type="radio" name="radio_ul_disabled" checked="checked" disabled="disabled" />radio1</label></li>
+	<li><label class="radio" title="radio2"><input type="radio" name="radio_ul_disabled" disabled="disabled" />radio2</label></li>
+	<li><label class="radio" title="radio3"><input type="radio" name="radio_ul_disabled" disabled="disabled" />radio3</label></li>
+</ol>
+<p class="guide_title">radio 개별 / disabled</p>
+<p>구조 :div</p>
+<div>
+	<label class="radio" title="radio1"><input type="radio" name="radio_single" checked="checked" />radio1</label>
+	<label class="radio" title="radio2"><input type="radio" name="radio_single" />radio2</label>
+	<label class="radio" title="radio3"><input type="radio" name="radio_single" />radio3</label>
+</div>
+<div>
+	<label class="radio" title="radio1"><input type="radio" name="radio_single_disabled" checked="checked" disabled="disabled" />radio1</label>
+	<label class="radio" title="radio2"><input type="radio" name="radio_single_disabled" disabled="disabled" />radio2</label>
+	<label class="radio" title="radio3"><input type="radio" name="radio_single_disabled" disabled="disabled" />radio3</label>
+</div></textarea>
+			<p>- script</p>
+			<textarea cols="" rows="14">
+function setRadioBox(){
+	/* Radio */
+	$(".radio input").each(function(){
+		var $radio = $(this);
+		if(!$radio.is(":disabled")){
+			if($radio.is(":checked")){
+				$radio.parent("label").addClass("on");
+			}else{
+				$radio.parent("label").removeClass().addClass("radio");
+			}
+		}else{
+			if($radio.is(":checked")){
+				$radio.parent("label").addClass("on_disabled");
+			}else{
+				$radio.parent("label").addClass("disabled");
+			}
+		}
+	});
+	$(".radio").click(function(){
+		var $radio = $(this);
+		var $radio_item = $(this).children("input");
+		var radio_name = $(this).children("input").attr("name");
+		if($radio_item.is(":disabled")){
+			return false;
+		}else{
+			$("input[name=" + radio_name + "]").parent("label").removeClass("on");
+			$radio.addClass("on").css("outline","none");
+		}
+	});
+	$(".radio input").focusin(function(){
+		$(this).parent(".radio").css("outline","1px dashed #1ab7ea");
+	});
+	$(".radio input").focusout(function(){
+		$(this).parent(".radio").css("outline","none");
+	});
+}</textarea>
+			<p>- css</p>
+			<textarea cols="" rows="14">
+/* Radio Design */
+.radio{position:relative;display:inline-block;margin-right:18px;padding-left:24px;font-size:13px;text-align:left;line-height:40px;cursor:pointer;background:url(/images/radio_off.png) no-repeat left center;}
+.radio input[type=radio]{position:absolute;top:0;left:0;opacity:0;filter:alpha(opacity:'0');z-index:-1;}
+.radio.disabled{background:url(/images/radio_off_disable.png) no-repeat left center;}
+.radio.on{background:url(/images/radio_on.png) no-repeat left center;}
+.radio.on_disabled{background:url(/images/radio_on_disable.png) no-repeat left center;}</textarea>
+
+			<h4>checkbox ver.20180731</h4>
+				<p class="guide_title">checkbox ul / disabled</p>
+				<p>구조 : ul > li</p>
+				<ul>
+					<li><label class="checkbox on" title="체크박스1"><input type="checkbox" name="" checked="checked" />체크박스1</label></li>
+					<li><label class="checkbox" title="체크박스2"><input type="checkbox" name="" />체크박스2</label></li>
+					<li><label class="checkbox" title="체크박스3"><input type="checkbox" name="" />체크박스3</label></li>
+				</ul>
+				<ul>
+					<li><label class="checkbox" title="체크박스1"><input type="checkbox" name="" checked="checked" disabled="disabled" />체크박스1</label></li>
+					<li><label class="checkbox" title="체크박스2"><input type="checkbox" name="" disabled="disabled" />체크박스2</label></li>
+					<li><label class="checkbox" title="체크박스3"><input type="checkbox" name="" disabled="disabled" />체크박스3</label></li>
+				</ul>
+				<p class="guide_title">checkbox 개별 / disabled</p>
+				<p>구조 : div</p>
+				<div>
+					<label class="checkbox" title="체크박스1"><input type="checkbox" name="" checked="checked" />체크박스1</label>
+					<label class="checkbox" title="체크박스2"><input type="checkbox" name="" />체크박스2</label>
+					<label class="checkbox" title="체크박스3"><input type="checkbox" name="" />체크박스3</label>
+				</div>
+				<div>
+					<label class="checkbox" title="체크박스1"><input type="checkbox" name="" checked="checked" disabled="disabled" />체크박스1</label>
+					<label class="checkbox" title="체크박스2"><input type="checkbox" name="" disabled="disabled" />체크박스2</label>
+					<label class="checkbox" title="체크박스3"><input type="checkbox" name="" disabled="disabled" />체크박스3</label>
+				</div>
+			<p>- html</p>
+			<textarea cols="" rows="14">
+<p class="guide_title">checkbox ul / disabled</p>
+<p>구조 : ul > li</p>
+<ul>
+	<li><label class="checkbox on" title="체크박스1"><input type="checkbox" name="" checked="checked" />체크박스1</label></li>
+	<li><label class="checkbox" title="체크박스2"><input type="checkbox" name="" />체크박스2</label></li>
+	<li><label class="checkbox" title="체크박스3"><input type="checkbox" name="" />체크박스3</label></li>
+</ul>
+<ul>
+	<li><label class="checkbox" title="체크박스1"><input type="checkbox" name="" checked="checked" disabled="disabled" />체크박스1</label></li>
+	<li><label class="checkbox" title="체크박스2"><input type="checkbox" name="" disabled="disabled" />체크박스2</label></li>
+	<li><label class="checkbox" title="체크박스3"><input type="checkbox" name="" disabled="disabled" />체크박스3</label></li>
+</ul>
+<p class="guide_title">checkbox 개별 / disabled</p>
+<p>구조 : div</p>
+<div>
+	<label class="checkbox" title="체크박스1"><input type="checkbox" name="" checked="checked" />체크박스1</label>
+	<label class="checkbox" title="체크박스2"><input type="checkbox" name="" />체크박스2</label>
+	<label class="checkbox" title="체크박스3"><input type="checkbox" name="" />체크박스3</label>
+</div>
+<div>
+	<label class="checkbox" title="체크박스1"><input type="checkbox" name="" checked="checked" disabled="disabled" />체크박스1</label>
+	<label class="checkbox" title="체크박스2"><input type="checkbox" name="" disabled="disabled" />체크박스2</label>
+	<label class="checkbox" title="체크박스3"><input type="checkbox" name="" disabled="disabled" />체크박스3</label>
+</div></textarea>
+			<p>- script</p>
+			<textarea cols="" rows="14">
+function setCheckBox(){
+	/* Checkbox */
+	$(".checkbox input").each(function(){
+		var $check = $(this);
+		if(!$check.is(":disabled")){
+			if($check.is(":checked")){
+				$check.parent().addClass("on");
+			}else{
+				$check.parent().removeClass().addClass("checkbox");
+			}
+		}else{
+			if($check.is(":checked")){
+				$check.parent().addClass("on_disabled");
+			}else{
+				$check.parent().addClass("disabled");
+			}
+		}
+		$check.change(function(){
+			if($check.is(":checked")){
+				$check.parent().addClass("on").css("outline","none");
+			}else{
+				$check.parent().removeClass("on").css("outline","none");
+			}
+		});
+	});
+	$(".checkbox").click(function(){
+		if(!$(this).children("input:disabled")){
+			if( $(this).hasClass('on') ){
+				$(this).removeClass("on");
+				$(this).children("input").prop("checked",false);
+				return false;
+			}else{
+				$(this).addClass("on");
+				$(this).children("input").prop("checked",true);
+				return false;
+			}
+		}
+	});
+	$(".checkbox input").focusin(function() {
+			$(this).parent(".checkbox").css("outline","1px dashed #1ab7ea");
+	});
+	$(".checkbox input").focusout(function(){
+		$(this).parent(".checkbox").css("outline","none");
+	});
+}</textarea>
+			<p>- css</p>
+			<textarea cols="" rows="14">
+/* checkbox Design */
+.checkbox{position:relative;display:inline-block;min-width:24px;min-height:40px;margin-right:18px;padding-left:24px;font-size:13px;text-align:left;line-height:40px;box-sizing:border-box;cursor:pointer;background:url(/images/check_off.png) no-repeat left center;}
+.checkbox.disabled{background:url(/images/check_off_disable.png) no-repeat left center;}
+.checkbox input[type=checkbox]{position:absolute;top:0;left:0;opacity:0;filter:alpha(opacity:'0');z-index:-1;}
+.checkbox.on{background:url(/images/check_on.png) no-repeat left center;}
+.checkbox.on_disabled{background:url(/images/check_on_disable.png) no-repeat left center;}</textarea>
+			<h4>Input number maxlegth</h4>
+			<input type="number" class="number" onkeydown="return event.keyCode !== 69" name="" oninput="numberMaxLength(this);" maxlength="4" value="" />
+			<textarea cols="" rows="14">
+<input type="number" onkeydown="return event.keyCode !== 69" name="" oninput="numberMaxLength(this);" maxlength="4" value="" />
+
+input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;}
+
+// input number MAxlength
+function numberMaxLength(e){
+	if(e.value.length > e.maxLength){
+		e.value = e.value.slice(0, e.maxLength);
+	}
+}
+</textarea>
+			<h4>select ver.20180731 [가상 ul 삭제. 기본 select option 활용]</h4>
+			<div class="select_ex">
+				<div class="select">
+					<span>선택</span>
+					<select>
+						<option value="">선택</option>
+						<option value="">010</option>
+						<option value="">011</option>
+						<option value="">016</option>
+						<option value="">019</option>
+					</select>
+				</div>
+				<div class="select">
+					<span>직접입력</span>
+					<select>
+						<option value="">직접입력</option>
+						<option value="">네이버</option>
+						<option value="">다음</option>
+						<option value="">구글</option>
+						<option value="">엠파스</option>
+						<option value="">네이버</option>
+						<option value="">다음</option>
+						<option value="">구글</option>
+						<option value="">엠파스</option>
+						<option value="">네이버</option>
+						<option value="">다음</option>
+						<option value="">구글</option>
+						<option value="">엠파스</option>
+						<option value="">네이버</option>
+						<option value="">다음</option>
+						<option value="">구글</option>
+						<option value="">엠파스</option>
+					</select>
+				</div>
+				<div class="select">
+					<span>Best</span>
+					<select>
+						<option value="">Best</option>
+						<option value="">New</option>
+						<option value="">낮은 가격 순 낮은 가격 순 낮은 가격 순 입니다.</option>
+						<option value="">높은 가격 순</option>
+					</select>
+				</div>
+			</div>
+			<p>- html</p>
+			<textarea cols="" rows="14">
+				<div class="select">
+					<span>Best</span>
+					<select>
+						<option value="">Best</option>
+						<option value="">New</option>
+						<option value="">낮은 가격 순</option>
+						<option value="">높은 가격 순</option>
+					</select>
+				</div></textarea>
+			<p>- script</p>
+			<textarea cols="" rows="14">
+function setSelectBox(){
+	$("select").each(function(){
+		var select = $(this);
+		var selected_txt = $(this).children("option:selected").text();
+		$(this).parent().find("span").text(selected_txt);
+
+		if(select.children("option:selected")){
+			var sel_text = $(this).children("option:selected").text();
+			$(this).parent().find("span").text(sel_text);
+		}
+	});
+
+	$("select").change(function(){
+		var select_txt = $(this).children("option:selected").text();
+		var person = $(this).children("option:selected").val();
+		//직접입력 Input
+		if(person == "person"){
+			$(this).parent(".select").next(".person_inp").show();
+		}else{
+			$(this).parent(".select").next(".person_inp").hide();
+		}
+		$(this).parent().find("span").text(select_txt);
+	});
+
+	$("select").focus(function(){
+		$(".select").removeClass("on");
+		$(this).parent(".select").addClass("on");
+	});
+
+	$("select").focusout(function(){
+		$(this).parent(".select").removeClass("on").find("ul").remove();
+	});
+}
+/* 초기화 */
+function select_reset(){
+	$(".search select").each(function(){
+		var selected_txt = $(this).children("option").eq(0).text();
+		$(this).children("option").eq(0).prop("selected", true);
+		$(this).parent().find("span").text(selected_txt);
+	});
+}</textarea>
+			<p>- css</p>
+			<textarea cols="" rows="14">
+/* Select Design */
+.select{display:inline-block;position:relative;width:132px;font-size:0;line-height:32px;vertical-align:top;background:#fff;}
+.select span{overflow:hidden;display:block;padding:0 35px 0 8px;color:#212121;font-size:13px;text-align:left;text-overflow:ellipsis;word-wrap:normal;white-space:nowrap;cursor:pointer;border:1px solid #ddd;box-sizing:border-box;background:url(/images/select_down.gif) no-repeat right center;}
+.select.on span{border:1px solid #1ab7ea;}
+.select.disabled span{color:#a2a2a2;}
+.select select{position:absolute;left:0;top:0;width:100%;height:34px;padding:0 35px 0 8px;line-height:32px;opacity: 0; filter: alpha(opacity:'0');z-index:110;}</textarea>
+
+
+			<h4>File ver.20180731</h4>
+			<div class="file_box">
+				<label for="file_upload2">파일첨부</label>
+				<input type="file" id="file_upload2" class="file_int" />
+				<span class="file_name"></span>
+			</div>
+			<p>- width 고정일때 dot처리</p>
+			<div class="file_box" style="width:240px">
+				<label for="file_upload3">파일첨부</label>
+				<input type="file" id="file_upload3" class="file_int" />
+				<span class="file_name"></span>
+			</div>
+			<p>- html</p>
+			<textarea cols="" rows="14">
+				<div class="file_box">
+					<label for="file_upload2">파일첨부</label>
+					<input type="file" id="file_upload2" class="file_int" />
+					<span class="file_name"></span>
+				</div></textarea>
+			<p>- script</p>
+			<textarea cols="" rows="14">
+function setFileBox(){
+	// File Design
+	$(".file_box input[type=file]").each(function(){
+		var $file = $(this);
+		$file.change(function(){
+			if(window.FileReader){ // modern browser var
+				filename = $(this)[0].files[0].name;
+			}else{ // old IE
+				var filename = $(this).val().split("/").pop().split('\\').pop(); // 파일명만 추출
+			}
+			$(this).siblings(".file_name").text(filename);
+			//게사판 첨부파일 삭제버튼 활성화.
+			$(this).closest(".file_box").next(".btn_file_del").css("display","inline-block");
+		});
+	});
+	$(".file_box input[type=file]").focus(function(){
+		$(".file_box").removeClass("on");
+		$(this).parent(".file_box").addClass("on");
+	});
+
+	$(".file_box input[type=file]").focusout(function(){
+		$(this).parent(".file_box").removeClass("on");
+	});
+	// file 삭제
+	$(".btn_file_del").click(function(){
+		$(this).parent("li").remove();
+	});
+}</textarea>
+			<p>- css</p>
+			<textarea cols="" rows="14">
+/* File Design */
+.file_box{position:relative;display:inline-block;min-width:114px;padding-right:76px;vertical-align:top;box-sizing:border-box;}
+.file_box.on{outline:1;}
+.file_box label{position:absolute;top:0;right:4px;width:72px;height:30px;color:#212121;font-size:12px;line-height:28px;text-align:center;border:1px solid #b7b7b7;box-sizing:border-box;background:#fafafa;}
+.file_box label:hover,.file_box.on label{border:1px solid #1ab7ea;}
+.file_box input[type=file]{position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;filter:alpha(opacity:'0');z-index:-1;}
+.file_box span{overflow:hidden;display:block;height:30px;padding:0 4px;color:#212121;font-size:12px;line-height:28px;vertical-align:top;box-sizing:border-box;text-overflow:ellipsis;word-wrap:normal;white-space:nowrap;}</textarea>
+
+
+			<h4>Slide Event : SlideToggle & Class name swich</h4>
+			<div class="slide_box">
+				<div class="slide_top">
+					<h4><i class="fa fa-plus-square"></i>제품상세 더보기</h4>
+					<a href="javascript:;" class="btn_slide"><i class="fa fa-angle-up"></i>닫기</a>
+				</div>
+				<div class="slide_con">
+					내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />내용<br />
+				</div>
+			</div>
+			<textarea cols="" rows="14">
+/**
+/* Slide event
+*/
+$(".btn_slide").each(function(){
+	var $BtnSlideToggle = $(this);
+	var $BtnIcon = $BtnSlideToggle.children(".fa");
+	console.log($BtnIcon);
+	$BtnSlideToggle.click(function(){
+		$(this).parent(".slide_top").next(".slide_con").slideToggle();
+		if($BtnIcon.hasClass("fa-angle-up")){
+			$BtnIcon.switchClass("fa-angle-up","fa-angle-down");
+		}else{
+			$BtnIcon.switchClass("fa-angle-down","fa-angle-up");
+		}
+	});
+});</textarea>
+
+			<h4>페이지명 얻기</h4>
+			<textarea cols="" rows="14">
+var pageNmae = location.href.split("/")[(location.href.split("/").length-1)].split(".")[0];</textarea>
+			<h4>파일명 얻기</h4>
+			<textarea cols="" rows="14">
+if(window.FileReader){ // modern browser var
+	filename = $(this)[0].files[0].name;
+}else{ // old IE
+	var filename = $(this).val().split("/").pop().split('\\').pop(); // 파일명만 추출
+}</textarea>
+			<h4>Resizing Font Size</h4>
+			<p>반응형 미디어 쿼리 적용시 Font size 분기처리가 부드럽지 않은 점을 개선하기위해 body의 디자인 시안의 기본 font-size를 1em을 기준으로 셋팅 후 script처리<br />※ font-size 계산을 #wrap로 하기때문에 #wrap의 Min-width와 Max-width 값 필수.<br />※ 본문 font들은 %로 작성</p>
+			<textarea cols="" rows="14">
+function font_sizing(){
+	var W_Max = 1920; // default size 기준점
+	var Wrap_W = $("#wrap").width(); // Wrap size
+
+	var F_val = Wrap_W/W_Max;
+	$("body").css("font-size",F_val+"em");
+}</textarea>
+			<h4>SVG</h4>
+			<p><a href="http://tutorials.jenkov.com/svg/index.html">http://tutorials.jenkov.com/svg/index.html</a></p>
+
+			<!-- SVG 테스트 -->
+			<div class="svg_motion">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="60">
+						<!-- <path style="stroke:#00ff00;fill:none"
+							d="M10,10
+							L10,40
+							A40,40 0 0,1 80,40
+							A40,40 0 0,1 150,40
+							A40,40 0 0,1 220,40
+							A40,40 0 0,1 290,40" />
+					<defs>
+						<radialGradient id="myLinearGradient1" xmlns="http://www.w3.org/2000/svg"
+										fx="50%" fy="50%" r="65%" spreadMethod="pad">
+					
+							<stop offset="0%" stop-color="#00cc00" stop-opacity="1"/>
+							<stop offset="100%" stop-color="#006600" stop-opacity="1"/>
+					
+						</radialGradient>
+						<rect x="50" y="0" rx="25" ry="25" width="50" height="50" style="fill:url(#myLinearGradient1);" />
+					</defs>
+						<rect x="0" y="0" width="50" height="50" style="fill:red" />
+							<animateMotion repeatCount="indefinite" dur="10s" begin="0s" path="M0,0 100,0 100,50 100,100" />
+						</rect> -->
+						<rect style="fill: none; stroke: #ff0000;" x="10" y="-10" width="2" height="2">
+							<animateMotion repeatCount="1" dur="3s" begin="0s" path="M0,0
+							L0,40
+							A50,40 0 0,1 80,40
+							A45,40 0 0,1 150,40
+							A40,40 0 0,1 210,40
+							A45,40 0 0,1 280,40
+							L280,0" />
+						</rect>
+						<rect x="10" y="-30" width="140" height="21" style="fill:#169bcd">
+							<animate attributeName="y" attributeType="XML"
+								from="-30"  to="20"
+								begin="3s" dur="1s"
+								fill="freeze" repeatCount="1"/>
+						</rect>
+						<text x="24" y="-16" style="fill:#fff;">원하는 메뉴 클릭~*
+							<animate attributeName="y" attributeType="XML"
+								from="-16"  to="34"
+								begin="3s" dur="1s"
+								fill="freeze" repeatCount="1"/>
+						</text>
+					</svg>
+			</div>
+			<!--// SVG 테스트 -->
+
+			<textarea cols="" rows="14">- PATH 명령어
+M = moveto 기준점이동
+L = lineto 선으로이동
+H = horizontal lineto 가로선이동
+v = vertical lineto 세로선이동
+C = curveto 곡선이동
+S = smooth curveto 부드러운 곡선이동
+Q = quadratic Bezier curve 2차 베지어 곡선
+T = smooth quadratic Bezier curveto 부드러운 2차 베지어 곡선
+A = elliptical Arc 타원형의 호
+Z = closepath 패스닫기
+			</textarea>
+			<h4>정규식</h4>
+			<p><a href="http://kio.zc.bz/Lecture/regexp.html">http://kio.zc.bz/Lecture/regexp.html</a></p>
+			<h4>accordion menu</h4>
+			<div class="accordion">
+				<div class="acc-item">
+					<p class="title"><a href="javascript:void();">title1</a></p>
+					<div class="content">
+					내용1
+					</div>
+				</div>
+				<div class="acc-item">
+					<p class="title"><a href="javascript:void();">title2</a></p>
+					<div class="content">
+					내용2
+					</div>
+				</div>
+				<div class="acc-item">
+					<p class="title"><a href="javascript:void();">title3</a></p>
+					<div class="content">
+					내용3
+					</div>
+				</div>
+			</div>
+<style>
+.accordion{border:1px solid #000;border-top:none;}
+.acc-item .title{padding:15px;border-top:1px solid #000;}
+.acc-item .title > a{display:block;color:inherit;}
+.acc-item .content{display:none;padding:15px;border-top:1px solid #000;background:#ddd;}
+.acc-item.active .title{color:#fff;background:blue;}
+.acc-item.active .content{display:block;}
+</style>
+<script>
+$(".accordion").on("click",".title > a", function(){
+	//e.preventDefault(); jquery 2.x.x version
+	$(this).closest(".acc-item").toggleClass("active").siblings().removeClass("active"); // self close
+	//$(this).closest(".acc-item").addClass("active").siblings().removeClass("active"); //닫힘기능 x
+}).find(".title > a").eq(0).trigger("click");
+</script>
+
+			<textarea cols="" rows="14"><div class="accordion">
+<div class="acc-item">
+	<p class="title"><a href="javascript:void();">title1</a></p>
+	<div class="content">
+	내용1
+	</div>
+</div>
+<div class="acc-item">
+	<p class="title"><a href="javascript:void();">title2</a></p>
+	<div class="content">
+	내용2
+	</div>
+</div>
+<div class="acc-item">
+	<p class="title"><a href="javascript:void();">title3</a></p>
+	<div class="content">
+	내용3
+	</div>
+</div>
+</div>
+<style>
+.accordion{border:1px solid #000;border-top:none;}
+.acc-item .title{padding:15px;border-top:1px solid #000;}
+.acc-item .title > a{display:block;color:inherit;}
+.acc-item .content{display:none;padding:15px;border-top:1px solid #000;background:#ddd;}
+.acc-item.active .title{color:#fff;background:blue;}
+.acc-item.active .content{display:block;}
+</style>
+<script>
+$(".accordion").on("click",".title > a", function(){
+	//e.preventDefault(); jquery 2.x.x version
+	$(this).closest(".acc-item").toggleClass("active").siblings().removeClass("active"); // self close
+	//$(this).closest(".acc-item").addClass("active").siblings().removeClass("active"); //닫힘기능 x
+}).find(".title > a").eq(0).trigger("click");
+</script></textarea>
+			<h4>modal pop</h4>
+			<textarea cols="" rows="14"><script type="text/javascript">
+function fnCouponPop(){
+	var w_ = ($(".backBg").width() - $("#popup_caobody_coupon").width())/2;
+	$("#popup_caobody_coupon").attr("style", "top:"+$(document).scrollTop()+"px;left:"+w_+"px;");
+	$(".backBg").show();
+	$("#popup_caobody_coupon").show();
+	
+}
+function fnClose(){
+	$("#popup_caobody_coupon").hide();
+	$(".backBg").hide();
+}
+</script></textarea>
+			<h4>openpopup</h4>
+			<textarea cols="" rows="14"><script type="text/javascript">
+function openPopup(){
+	window.open('benefit_info.html','','width=932,height=600,scrollbars=yes,top=0,left=0');
+}
+</script></textarea>
+			<textarea cols="" rows="14"><a href="javascript:void();" onclick="window.open('../level/level.php','ocookie','scrollbars=no,menubar=no,width=617,height=843')"/></textarea>
+			<h4>익스창사이즈 구하기</h4>
+			<textarea cols="" rows="14"><script type="text/javascript">
+  <!--
+	function getDisplayInfo() {
+		var size = {
+		  width: window.innerWidth || document.body.clientWidth,
+		  height: window.innerHeight || document.body.clientHeight
+		}
+		var w = document.getElementById("dispWidth");
+		var h = document.getElementById("dispHeight");
+		w.innerHTML = size.width;
+		h.innerHTML = size.height;
+	}
+
+	window.onload = getDisplayInfo;
+  //-->
+</script>
+<div>w: <span id="dispWidth">widht</span>px / h: <span id="dispHeight">height</span>px</div></textarea>
+			<h4>해상도구하기</h4>
+			<textarea cols="" rows="14">screen.width;
+screen.height;</textarea>
+			<h4>top값 좌표 구하기</h4>
+			<textarea cols="" rows="14">var win_height = $(window).height();
+var scroll_top = window.pageYOffset;
+var vBox_height = $(".voteBox").height();
+var top = (win_height-vBox_height)/2 +scroll_top + 180;
+$(".voteBox").css("top",top);</textarea>
+			<h4>li갯수 만큼 i값 돌리기</h4>
+			<textarea cols="" rows="14">var $length = $(".bannerRolling > .rollingList > li").length;
+var html = '';
+for(var i=0; i<$length; i++){
+html += '<li><a href='#'>"+i+"번째 이미지입니다.</a></li>';
+// $(".rollingController").append(html); 반복할때마다 append or html 
+}</textarea>
+			<h4>checked</h4>
+			<textarea cols="" rows="14"><script type="text/javascript">
+$(function(){
+	//var hdok_val = $(".hdok_check").val();
+	//alert(hdok_val);
+	$(".hdok_form").hide();
+	$(".hdok_check").click(function(){
+		if($(this).is(":checked")){
+			$(".hdok_form").show();
+		}else{
+			$(".hdok_form").hide();
+		}
+	});
+});
+</script></textarea>
+			<h4>자식 li의 넓이 총합 구하기</h4>
+			<textarea cols="" rows="14">var toaltWidth = 0;
+$(".gnb li").each(function(index){
+totalWidth += parseInt($(this).width(),10);
+}); </textarea>
+			<h4>버튼 사이즈를 동일하게 만들기</h4>
+			<textarea cols="" rows="14">var arr = [];
+$("button").each(function(i){
+	arr[i] = $(this).width();
+});
+$("button").css("width", Math.max.apply(0, arr));</textarea>
+			<h4>이미지 스왑</h4>
+			<textarea cols="" rows="14">$(function(){
+	$(".appGallery_tab li").hover(function(){
+		var img_src = $(this).find("img").attr("src").replace("_off","_on");
+		$(this).find("img").attr("src",img_src);
+	},function(){
+		var img_src = $(this).find("img").attr("src").replace("_on","_off");
+		$(this).find("img").attr("src",img_src);
+	});
+});</textarea>
+			<h4>resize 모바일 가로 세로 구분소스</h4>
+			<textarea cols="" rows="14">window.onresize = function(){
+	resizeScreen();
+}
+function resizeScreen(){
+	var screenWidth = screen.width;
+	var screenHeight = screen.height;
+	if(screenWidth > screenHeight){
+		var win_height =$(window).height();
+		var header_height = $("#header").height();
+		$(".gnb_box").css("height",win_height - header_height -22);
+	}else{
+		var win_height =$(window).height();
+		var header_height = $("#header").height();
+		$(".gnb_box").css("height",win_height - header_height -20);
+	}
+}</textarea>
+			<h4>select change show hide</h4>
+			<textarea cols="" rows="14">$(function(){
+	$(".category_sel").on("change", function() {
+		var val = $(this).val();
+		if($(this).val() == "1"){
+			$('.category01').siblings().hide();
+			$('.category01').show();
+		}else if($(this).val() == "2"){
+			$('.category02').siblings().hide();
+			$('.category02').show();
+		}else if($(this).val() == "3"){
+			$('.category03').siblings().hide();
+			$('.category03').show();
+		}else{
+			$('.etc dl').hide();
+		}
+	});
+});</textarea>
+			<h4>tab slider navi 기능 접목</h4>
+			<p>- html</p>
+			<textarea cols="" rows="14"><div class="product_tab">
+		<a href="javascript:void();" class="prev">이전</a>
+		<div class="tab_box">
+			<ul id="tab" class="tab">
+				<li><a href="#">menu01</a></li>
+				<li><a href="#">menu02</a></li>
+				<li><a href="#">menu03</a></li>
+				<li><a href="#">menu04</a></li>
+				<li><a href="#">menu05</a></li>
+				<li><a href="#">menu06</a></li>
+				<li><a href="#">menu07</a></li>
+				<li><a href="#">menu08</a></li>
+			</ul>
+		</div>
+		<a href="javascript:void();" class="next">다음</a>
+	</div>
+<script type="text/javascript">
+	var index = '<?=$depth3?>' -4; // 페이징, 한화면에 보여지는 tab항목 갯수 4
+	m_bn_init(); //tab slider 함수 실행
+	$(function(){
+		if(index > 0){
+			for(i=0; index > i >0; i++){
+				$(".next").trigger('click'); // i값 만큼 버튼 클릭 실행
+			}
+		}
+	});
+</script></textarea>
+			<p>- script banner.js</p>
+			<textarea cols="" rows="14">//<![CDATA[
+var m_bn_count=0;
+var m_bn_p_click_check= 0;
+function m_bn_init(){
+	$(".tab_box").css({"height":"43px","overflow":"hidden"});
+	$(".next").click(function(){m_bn_r_click();return false;});
+	$(".prev").click(function(){m_bn_l_click();return false;});
+}
+function m_bn_r_click(){
+	$(".tab_box > ul > li").eq(0).clone().appendTo($(".tab_box > ul"));
+	$(".tab_box > ul > li").eq(0).remove();
+}
+function m_bn_l_click(){
+	$(".tab_box > ul > li:last").clone().prependTo($(".tab_box > ul"));
+	$(".tab_box > ul > li:last").remove();
+}
+ //]]></textarea>
+			<p>- css</p>
+			<textarea cols="" rows="14">
+.tab{overflow:hidden;}
+.tab > li{float:left;margin-right:3px;padding-bottom:6px;}
+.tab > li.active{background:url(../images/common/bg_tab_active.gif) no-repeat center bottom;}
+.tab > li > a{display:inline-block;min-width:154px;padding:9px 16px 10px 16px;color:#464646;font-size:14px;font-weight:bold;line-height:18px;text-align:center;background:#e1e1e1;}
+.tab > li > a:hover,.tab > li.active > a{color:#fff;font-size:16px;background:#5b9bba;}
+
+.product_tab{position:relative;overflow:hidden}
+.product_tab .prev{float:left;width:37px;margin-right:3px;}
+.product_tab .tab_box{overflow:hidden;position:absolute;left:40px;width:693px;height:43px}
+.product_tab .tab_box .tab{position:absolute;left:0;width:2000px;}
+.product_tab .tab_box .tab li{width:171px;}
+.product_tab .tab_box .tab li a{min-width:151px;padding:9px 10px 10px 10px;}
+.product_tab .next{float:right;width:37px;}</textarea>
+			<p>실제 적용 사이트 : <a href="http://www.melfas.com/kor/product/product.html?b_cate=0">(주)멜파스</a></p>
+			<h4>잡코드</h4>
+			<textarea cols="" rows="14">var top = 0;
+	$(".ex_list01 li").each(function(index){
+		top +=parseInt($(this).height(),10);
+		
+		if(index > 6 ){
+			$(this).css({
+				"position":"absolute",
+				"display":"inline-block",
+				"right":"0",
+				"top":top-144
+			});
+		}
+	});</textarea>
+		</div>
+
+		<div id="etc">
+			<h3>ETC</h3>
+			<h4>Font-Awesome-Cheetsheet-4.5.0</h4>
+			<p><a href="http://swwwitch.com/dl/Font-Awesome-Cheetsheet-4.5.0.pdf">http://swwwitch.com/dl/Font-Awesome-Cheetsheet-4.5.0.pdf</a></p>
+			<h4>Font-Awesome 최신 free</h4>
+			<p><a href="https://fontawesome.com/icons?d=gallery&m=free">https://fontawesome.com/icons?d=gallery&m=free</a></p>
+			<h4>React.js 강좌</h4>
+			<p><a href="https://www.youtube.com/playlist?list=PL9FpF_z-xR_GMujql3S_XGV2SpdfDBkeC">https://www.youtube.com/playlist?list=PL9FpF_z-xR_GMujql3S_XGV2SpdfDBkeC</a></p>
+			<h4>React 실전</h4>
+			<p><a href="https://simplereact.gitbook.io/simplereact/">https://simplereact.gitbook.io/simplereact/</a></p>
+			<h4>vuescroll.js</h4>
+			<p><a href="https://vuescrolljs.yvescoding.org/guide/configuration.html#vuescroll">https://vuescrolljs.yvescoding.org/guide/configuration.html#vuescroll</a></p>
+			<h4>[W3C]HTML 4와 HTML 5의 차이점</h4>
+			<p><a href="http://channy.creation.net/project/html5/html4-differences/">http://channy.creation.net/project/html5/html4-differences/</a></p>
+			<h4>Web Development Tutorial</h4>
+			<p><a href="https://poiemaweb.com/">https://poiemaweb.com/</a></p>
+			<h4>Github 협업 튜토리얼 : 신시화님</h4>
+			<p><a href="https://milooy.wordpress.com/2017/06/21/working-together-with-github-tutorial/">https://milooy.wordpress.com/2017/06/21/working-together-with-github-tutorial/</a></p>
+			<h4>다음 지도 API</h4>
+			<p><a href="http://apis.map.daum.net/web/guide/">http://apis.map.daum.net/web/guide/</a></p>
+			<h4>구글 지도 API 사용시 동해 표시</h4>
+			<p>http://maps.googleapis.com/maps/api/js?v=3&sensor=false<span style="color:red;text-decoration:underline;">&amp;region=KR</span> &amp;region=KR 추가</p>
+			<h4>웹스퀘어5 문서 가이드</h4>
+			<p><a href="http://docs.inswave.com/index">http://docs.inswave.com/index</a><p>
+			<h4>웹스퀘어5 퍼블 샘플가이드</h4>
+			<p><a href="http://style.inswave.com/websquare/websquare.html?w2xPath=/index_tabcontrol.xml">http://style.inswave.com/websquare/websquare.html?w2xPath=/index_tabcontrol.xml</a><p>
+			<h4>웹 테스트 에디터</h4>
+			<p><a href="http://jsbin.com/?html,output">http://jsbin.com/?html,output</a><p>
+			<h4>모바일 디버깅 (크롬)</h4>
+			<p><a href="https://developer.chrome.com/devtools/docs/remote-debugging">https://developer.chrome.com/devtools/docs/remote-debugging</a></p>
+			<p>chrome://inspect/#devices</p>
+			<h4>글자 가져오기</h4>
+			<textarea cols="" rows="14">substring(0,4);</textarea>
+			<h4>네이버 지도 리사이징</h4>
+			<textarea cols="" rows="14"><div class="location_box">
+	<div id="map_div" class="map" style="width:100%;height:467px;"></div>
+	<script type="text/javascript">
+	var mapW = $('.location_box').width();
+	var mapH = $('.location_box').height();
+	$(function(){
+		$(window).resize(function(){
+			mapW = $('.location_box').width();
+			mapH = $('.location_box').height();
+			 oMap.setSize(new nhn.api.map.Size(mapW, mapH));
+		});
+		//alert(mapW);
+		var oPoint = new nhn.api.map.LatLng(35.0913340,128.7804780);
+		nhn.api.map.setDefaultPoint('LatLng');
+		oMap = new nhn.api.map.Map('map_div', {
+					center : oPoint,
+					level : 9, // - 초기 줌 레벨은 10이다.
+					enableWheelZoom : true,
+					enableDragPan : true,
+					enableDblClickZoom : false,
+					mapMode : 0,
+					activateTrafficMap : false,
+					activateBicycleMap : false,
+					activateRealtyMap : true,
+					minMaxLevel : [ 1, 14 ],
+					size : new nhn.api.map.Size(mapW, mapH)
+		});
+		var oSize = new nhn.api.map.Size(160, 38);
+		var oOffset = new nhn.api.map.Size(12, 37);
+		var oIcon = new nhn.api.map.Icon('../images/content/location_marker.png', oSize, oOffset);
+		var oMarker = new nhn.api.map.Marker(oIcon, { title : '마커 : ' + oPoint.toString() });
+			oMarker.setPoint(oPoint);
+			oMap.addOverlay(oMarker);
+	});
+
+	</script>
+</div></textarea>
+			<h4>코드정리</h4>
+			<p><a href="http://prettydiff.com/?m=beautify">http://prettydiff.com/?m=beautify</a></p>
+			<h4>지도 좌표구하기</h4>
+			<p><a href="http://mygeoposition.com/">http://mygeoposition.com/</a></p>
+			<h4>RGB output to Hex Color</h4>
+			<p><a href="http://wowmotty.blogspot.kr/2009/06/convert-jquery-rgb-output-to-hex-color.html">http://wowmotty.blogspot.kr/2009/06/convert-jquery-rgb-output-to-hex-color.html</a></p>
+			<h4>배열공부 (breadcrumb)</h4>
+			<textarea cols="" rows="14">
+	// menu
+	var page = new Array();
+	page = [
+		['greeting','greeting','인사말','1','1','0'],
+		['business','business','비전과 가치','1','2','0'],
+		['tech','tech','보유기술','2','1','0']
+	];
+
+	var path = window.location.pathname;
+	var filename = path.match(/.*\/([^/]+)\.([^?]+)/i)[1];
+	//alert(filename);
+	//alert(page[0][0]);
+	
+	for(i=0; i>=0; i++){
+		//alert(page[i][1]);
+		if(filename == page[i][0]){
+			var depth1 = page[i][3]; //gnb 1depth
+			var depth2 = page[i][4]; //lnb
+			var depth3 = page[i][5];
+			//alert(page[i][1]);
+			$('#gnb').menuModel1({hightLight:{level_1:depth1},target_obj:'#gnb',showOps:{visibility:'visible'},hideOps:{visibility:'hidden'}});
+			//alert(depth2);
+			$("#lnb li:eq("+(depth2 - 1)+")").addClass("active");
+			if(depth3 - 1 >= 0){
+				$("#lnb_2dp li:eq("+(depth3 - 1)+")").addClass("active");
+			}
+			$("#tab li:eq("+(depth3 - 1)+")").addClass("active");
+			
+		}
+	}
+	php 배열
+	<?
+		$page = array(
+			array(),
+			array(),
+			array()
+		);
+	?>
+	문자열은 필히 "" 넣어준다.</textarea>
+			<h4>php & javascript 배열 (breadcrumb)</h4>
+			<textarea cols="" rows="14">&lt;?
+	$php_self = explode("/", $_SERVER[PHP_SELF]);
+	$url_cnt = count($php_self) - 1;
+	$this_page = $php_self[$url_cnt];
+	$url_parsed = parse_url($this_page); 
+	$pathinfo = pathinfo($url_parsed["path"]); 
+	//echo $pathinfo["filename"];
+
+	$page = array(
+		array("greeting","About MELFAS","CEO's Greeting",1,1,0),
+		array("vision","About MELFAS","Vision & Value",1,2,0),
+		array("business","About MELFAS","Overview",1,3,0)
+	);
+	
+	//echo count($page);
+	
+	for($i=0;$i<count($page);$i++){
+		if($pathinfo["filename"] == $page[$i][0]){
+			$page_1dp = $page[$i][1];
+			$page_2dp = $page[$i][2];
+			$depth1 = $page[$i][3];
+			$depth2 = $page[$i][4];
+			$depth3 = $page[$i][5];
+		}
+	}
+?&gt;
+<script type="text/javascript">
+$(function(){
+	$("#gnb > li > a").on("mouseenter",function(){
+		$("#header").stop().animate({height:'130px'}, 200);
+		$(".header_in").css("border","none");
+	});
+	$("#gnb").on("mouseleave",function(){
+		$("#header").stop().animate({height:'77px'}, 200);
+		$(".header_in").css({"border-bottom":"1px solid #d7d7d7"});
+	});
+	
+	var depth1 = '<?=$depth1?>'; //gnb 1depth
+	var depth2 = '<?=$depth2?>'; //lnb
+	var depth3 = '<?=$depth3?>'; //tab
+	$('#gnb').menuModel1({hightLight:{level_1:depth1},target_obj:'#gnb',showOps:{visibility:'visible'},hideOps:{visibility:'hidden'}});
+	//alert(depth2);
+	$("#lnb li:eq("+(depth2 - 1)+")").addClass("active");
+	if(depth3 - 1 >= 0){
+		$("#lnb_2dp li:eq("+(depth3 - 1)+")").addClass("active");
+	}
+	$("#tab li:eq("+(depth3 - 1)+")").addClass("active");
+
+});
+</script>
+// html location명 불러오기
+<p class="location">Home &gt; &lt;?=$page_1dp?&gt; &gt; &lt;?=$page_2dp?&gt;</p></textarea>
+			<h4>AngularJs</h4>
+			<textarea cols="" rows="14"><script src="http://code.angularjs.org/angular-1.0.0rc10.min.js"></script></textarea>
+<style>
+.inp_form{width:100%;margin-top:10px;}
+.inp_form caption{border-top:2px solid #3d62ee;}
+.inp_form th,.inp_form td{padding:11px 0;border-bottom:1px solid #bdbdbd;}
+.inp_form th{padding:11px 0;}
+.inp_form td{padding:11px 10px;border-left:1px solid #bdbdbd;}
+.inp_form td input{padding:4px 0;border:1px solid #eee;}
+.inp_form td input.no_val{border:1px solid #e53030;}
+.inp_form td input.suff_val{border:1px solid #5bb347;}
+.inp_form td span{margin-left:10px;font-weight:bold;}
+.inp_form td span.no_text{color:#e53030;}
+.inp_form td span.suff_text{color:#5bb347;}
+</style>
+<script>
+$(function(){
+	var in_val = '';
+	$(".inp_form input").keyup(function(e){
+		var target = $(e.target).val();
+		var t_val = target.length;
+		var no_html = "<span class='no_text'>6글자 필수 작성</span>";
+		var suff_html = "<span class='suff_text'>확인</span>";
+
+		if(t_val < 6){
+			$(e.target).removeClass("suff_val").addClass("no_val");
+			$(e.target).next(".suff_text").remove();
+		}else{
+			$(e.target).removeClass("no_val").addClass("suff_val");
+			$(e.target).next(".no_text").remove();
+		}
+
+		if($(e.target).hasClass("suff_val")){
+			if($(e.target).next(".suff_text").length == 0){
+				$(e.target).parent().append(suff_html);
+			}
+		}else{
+			if($(e.target).next(".no_text").length == 0){
+				$(e.target).parent().append(no_html);
+			}
+		}
+	});
+	
+});
+</script>
+			<h4>Forms Validation</h4>
+			<table class="inp_form" summary="">
+				<caption></caption>
+				<colgroup>
+					<col width="18%" />
+					<col width="*" />
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row"><label for="id">아이디</label></th>
+						<td><input type="text" id="id" /></td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="pw">패스워드</label></th>
+						<td><input type="text" id="pw" /></td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="tel">연락처</label></th>
+						<td><input type="text" id="tel" /></td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="add">주소</label></th>
+						<td><input type="text" id="add" /></td>
+					</tr>
+				</tbody>
+			</table>
+			<textarea cols="" rows="14">- 스터디중
+$(function(){
+	var in_val = '';
+	$(".inp_form input").keyup(function(e){
+		var target = $(e.target).val();
+		var t_val = target.length;
+		var no_html = "<span class='no_text'>6글자 필수 작성</span>";
+		var suff_html = "<span class='suff_text'>확인</span>";
+
+		if(t_val < 6){
+			$(e.target).removeClass("suff_val").addClass("no_val");
+			$(e.target).next(".suff_text").remove();
+		}else{
+			$(e.target).removeClass("no_val").addClass("suff_val");
+			$(e.target).next(".no_text").remove();
+		}
+
+		if($(e.target).hasClass("suff_val")){
+			if($(e.target).next(".suff_text").length == 0){
+				$(e.target).parent().append(suff_html);
+			}
+		}else{
+			if($(e.target).next(".no_text").length == 0){
+				$(e.target).parent().append(no_html);
+			}
+		}
+	});
+});</textarea>
+		<h4>base.css</h4>
+		<textarea cols="" rows="35">@charset "UTF-8";
+
+/* default definition*/
+*{margin:0;padding:0;}
+html,body{margin:0;padding:0;}
+body{position:relative;font-family:"돋움",Dotum;font-size:12px;color:#424242;line-height:18px;text-align:justify; word-break:break-all;}
+table,div{border-collapse:collapse;}
+select,textarea{color:#666;font-size:12px;vertical-align:top;border:1px solid #dadada;}
+form, ul, ol, dl, table, div, h1, h2, h3 ,h4{margin:0;padding:0;}
+h1, h2, h3 ,h4, h5, h6{font-size:12px;font-weight:normal;text-decoration:none;}
+img, fieldset{margin:0;padding:0;border:0;}
+li{vertical-align:top;}
+select{position:relative;color:#666;font-size:12px;vertical-align:middle;border:1px solid #dadada;}
+input{color:#666;text-indent:1px;background:#fff;}
+input[type=file]{border:1px solid #dadada;background:#fff;}
+img, input{vertical-align:middle;}
+ul, li, dl, dt, dd{list-style-type:none;}
+caption{font-size:0;line-height:0;text-indent:-5000px;}
+legend{position:absolute;top:0;left:0;font-size:0;line-height:0;text-indent:-5000px;}
+hr{display:none;}
+
+a:link{color:#424242;text-decoration:none;}
+a:hover{color:#000000;text-decoration:underline;}
+a:visited{color:#424242;text-decoration:none;}
+
+/*skipNavigation*/
+#skipNavigation a{overflow:hidden;display:block;width:0px;height:0px;color:#000;text-align:center;}
+#skipNavigation a:focus, #skipNavigation a:active{display:block;width:auto;height:auto;padding:5px;border:1px solid #ddd;background:#f2f2f2 !important;}
+
+/* 공통 */
+.hidden{position:absolute;top:-10000px;left:0;font-size:1;line-height:1;text-indent:-5000px;}</textarea>
+			<h4>소스</h4>
+			<textarea cols="" rows="14">$(function(){
+	$("input[type=text]").each(function(){
+		var input_val = $(this).val();
+		var input_title = $(this).attr("title");
+		if(input_val == ''){
+			$(this).val(input_title);
+		}
+		$(this).focus(function(){
+			if($(this).val() == input_title){
+				$(this).val('');
+			}
+		});
+		$(this).blur(function(){
+			if($(this).val() == ''){
+				$(this).val(input_title);
+			}
+		});
+	});
+	$("textarea").each(function(){
+		var textarea_val = $(this).val();
+		var textarea_title = $(this).attr("title");
+		if(textarea_val == ''){
+			$(this).val(textarea_title);
+		}
+		$(this).focus(function(){
+			if($(this).val() == textarea_title){
+				$(this).val('');
+			}
+		});
+		$(this).blur(function(){
+			if($(this).val() == ''){
+				$(this).val(textarea_title);
+			}
+		});
+	});
+});</textarea>
+			<h4>기타 CSS</h4>
+			<textarea cols="" rows="14">transform:scale(0.9) translateX(-15%) translateY(-145%);
+display:flex;flex-direction:column;justify-content:center;align-items:center;
+<input type="text" name="id" autocomplete="off" required placeholder='' >
+</textarea>
+		</div>
+	</div>
+	<a href="javascript:;" class="move_top">TOP</a>
+</div>
+</body>
+</html>

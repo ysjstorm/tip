@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+/* default definition*/
+* { margin:0; padding:0;}
+html, body { margin:0; padding:0;}
+/* html {overflow:hidden;}*/ /* 기본 스크롤 제거 */
+body {/* overflow-x:hidden;*/ font-family: "돋움",Dotum;font-size:12px;color:#424242; line-height:18px;position:relative; text-align:justify; word-break:break-all;} /* 대체 스크롤 생성 */
+table, div {border-collapse:collapse;}
+select, textarea {border:1px solid #dadada;font-size:12px;color:#666666;vertical-align:top;}
+form, ul, ol, dl, table, div, h1, h2, h3 ,h4 {margin:0;padding:0;}
+h1, h2, h3 ,h4, h5, h6{font-size:12px; text-decoration:none; font-weight:normal;}
+img, fieldset {border:0; margin:0; padding:0; }
+li{vertical-align:top; }
+select{position:relative;border:1px solid #dadada;font-size:12px;color:#666666;vertical-align:middle;}
+input{color:#666666;background:#fff;text-indent:1px}
+input[type=file]{background:#fff;border:1px solid #dadada;}
+img, input{vertical-align:middle;}
+i,em,address{font-style:normal;}
+ul, li, dl, dt, dd{list-style-type : none; }
+caption { text-indent:-5000px; line-height:0; font-size:0;}
+legend{ text-indent:-5000px; line-height:0; font-size:0; position:absolute;  top:0; left:0;}
+hr{display:none;}
+
+a:link {color:#424242; text-decoration:none;}
+a:hover {color:#000000; text-decoration:underline;}
+a:visited {color:#424242; text-decoration:none;}
+
+/*skipNavigation*/
+#skipNavigation a{overflow:hidden; display:block; width:0px; height:0px; text-align:center; color:#000;}
+#skipNavigation a:focus, #skipNavigation a:active {width:auto; height:auto; padding:5px; background:#f2f2f2 !important; border:1px solid #ddd; display:block;}
+
+/* 공통 */
+.hidden{text-indent:-5000px; line-height:1; font-size:1; position:absolute;  top:-10000px; left:0; }
+.b {font-weight:bold !important;}
+.nf {font-weight:normal !important;}
+.bk{display:block;}
+.nbt {border-top:none !important;}
+.nbr {border-right:none !important;}
+.nbb {border-bottom:none !important;}
+.nbl {border-left:none !important;}
+
+/* font color */
+.f_blue{color:#2c77bc;}
+.f_red{color:#d35f5f;}
+.f_green{color:#65a112;}
+
+/*정렬클래스*/
+.of {overflow:hidden !important;}
+.fl {float:left !important;}
+.fr {float:right !important;} 
+.cl {clear:both !important;}
+.al {text-align:left !important;}
+.ar {text-align:right !important;}
+.ac {text-align:center !important;}
+.at {vertical-align:top !important;}
+.am {vertical-align:middle !important;}
+.ab {vertical-align:bottom !important;}
+
+/* 간격조정 */
+.ml10{margin-left:10px !important;}
+.ml15{margin-left:15px !important;}
+.ml25{margin-left:25px !important;}
+.ml59{margin-left:59px !important;}
+.ml205{margin-left:205px !important;}
+
+.mb20{margin-bottom:20px !important;}
+.mb30{margin-bottom:30px !important;}
+.mb40{margin-bottom:40px !important;}
+
+.pt18{padding-top:18px !important;}
+
+.ptb20{padding-top:20px !important;padding-bottom:20px !important;}

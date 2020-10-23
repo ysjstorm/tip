@@ -1,0 +1,24 @@
+
+/* 모바일 (가로 480px 미만) 용 스타일 */ 
+@media only screen and (max-width: 480px) {
+
+} 
+@media only screen and (max-width: 600px) { /* 초기 안내문구의 wrap_info가 600px이므로 잠시 max-width를 600으로  설정 */
+.wrap_info{width:100% !important;margin:0;}
+.front_info{padding:50px 10px;font-size:1.8em !important;}
+.add_info{padding:0 10px}
+
+.pp_list{padding:0 10px;}
+.pp_list li{font-size:1.2em !important;}
+.pp_list li strong{display:block;float:none !important;}
+.pp_list li a{float:none !important;}
+} 
+@media only screen and (max-width: 768px) {
+} 
+@media only screen and (max-width: 992px) {
+} 
+@media only screen and (max-width: 1382px) {
+} 
+ /* iPhone4+ 레티나 디스플레이 */ 
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) { 
+} 

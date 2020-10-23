@@ -1,0 +1,13 @@
+
+.wrap_info{width:600px;margin:0 auto;}
+.front_info{margin-bottom:10px;padding:50px 0;text-align:center;font-size:16px;}
+.add_info{color:red;}
+
+.pp_list{margin-top:15px;padding-top:10px;border-top:2px solid #ededed;border-bottom:2px solid #ededed;}
+.pp_list li{overflow:hidden;margin-bottom:10px;padding-left:8px;font-size:13px;background:url("../../hd/images/common/bg_bul01.gif") no-repeat left 7px}
+.pp_list li strong{float:left;}
+.pp_list li a{float:right;color:#747dc5;text-decoration:underline}
+.pp_list li a.opensite{color:#666;}
+
+.footer{padding:20px 0;}
+.footer p{text-align:center;color:#bdbdbd;font-weight:bold;}
